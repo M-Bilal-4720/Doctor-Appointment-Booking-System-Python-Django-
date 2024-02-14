@@ -1,0 +1,153 @@
+{% extends "basic.html" %}
+{% block containt %}
+{% load static %}
+
+  <div class="breadcrumb-bar">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-md-12 col-12">
+          <nav aria-label="breadcrumb" class="page-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a
+                  href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Booking</li>
+            </ol>
+          </nav>
+          <h2 class="breadcrumb-title">Booking</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+<strong>{{message}}</strong> <a href="#" class="alert-link"></a> 
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+</button>
+</div>{% endfor %}
+{% endif %}
+            <div class="card-body">
+              <div class="booking-doc-info">
+                <a href="{% url 'view_doctor' doctor.id %}"
+                  class="booking-doc-img">
+                  <img
+                    src="/media/{{doctor.doc_image}}"
+                    alt="User Image">
+                </a>
+                <div class="booking-info">
+                  <h4><a href="{% url 'view_doctor' doctor.id %}">{{doctor.user.get_full_name}}</a></h4>
+                  <div class="rating">
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="d-inline-block average-rating">35</span>
+                  </div>
+                  <p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> {{doctor.state}}, {{doctor.country}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+  <div class="col-12 col-sm-4 col-md-6">
+    <h4 class="mb-1">{{ selected_date|date:"j F Y" }}</h4>
+    <p class="text-muted">{{ selected_date|date:"l" }}</p>
+  </div>
+ 
+</div>
+
+          <div class="card booking-schedule schedule-widget">
+
+            <div class="schedule-header">
+              <div class="row">
+                <div class="col-md-12">
+
+                  <div class="day-slot">
+                    <ul>
+            {% for day in days %}
+            <li>
+              <span>{{ day.day_name }}</span>
+              <span class="slot-date">{{ day.date|date:"j M Y" }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="schedule-cont">
+              <div class="row">
+                <div class="col-md-12">
+
+                  <div class="time-slot">
+                   <form id="appointment-form" action="{% url 'book_appointment' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="selected_date" value="{{ selected_date }}">
+             <input type="hidden" name="doctor_id" value="{{doctor.id}}">
+            <ul class="list-unstyled">
+            {% for day in days %}
+            <li>
+                {% for time_slot in day.time_slots %}
+                <label class="timing-radio">
+                    <input type="radio" name="selected_time" value="{{ time_slot.start_time }}">
+                    <span>{{ time_slot.start_time }}</span> <span>{{ time_slot.end_time }}</span>
+                </label>
+                {% endfor %}
+            </li>
+            {% endfor %}
+        </ul>
+            <div class="submit-section proceed-btn text-end">
+             <button type="submit" class="btn btn-primary submit-btn" onclick="validateAppointment()">Book Appointment</button>
+
+            </div>
+          </form>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+         
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<script>
+function validateAppointment() {
+  // Get all the radio buttons for time slots
+  const timeSlots = document.querySelectorAll('input[type="radio"][name="selected_time"]');
+  let selectedTime = false;
+
+  // Check if any time slot is selected
+  for (let i = 0; i < timeSlots.length; i++) {
+    if (timeSlots[i].checked) {
+      selectedTime = true;
+      break;
+    }
+  }
+
+  if (!selectedTime) {
+    alert('Please select a time slot before booking the appointment.');
+    event.preventDefault(); // Prevent form submission if no time slot is selected
+  }
+}
+</script>
+{% endblock %}

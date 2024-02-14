@@ -1,0 +1,147 @@
+{% extends "basic.html" %}
+{% block containt %}
+{% load static %}
+  <div class="breadcrumb-bar">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-md-12 col-12">
+          <nav aria-label="breadcrumb" class="page-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a
+                  href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Invoice View</li>
+            </ol>
+          </nav>
+          <h2 class="breadcrumb-title">Invoice View</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="invoice-content">
+            <div class="invoice-item">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="invoice-logo">
+                    <img src="https://doccure.dreamguystech.com/laravel/template-cardiology/public/assets/img/logo.png"
+                      alt="logo">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <p class="invoice-details">
+                    <strong>Invoice No:</strong> #{{payment.id}} <br>
+                    <strong>Issued:</strong> {{payment.payment_date}}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="invoice-item">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="invoice-info">
+                    <strong class="customer-text">Invoice From</strong>
+                    <p class="invoice-details invoice-details-two">
+                      {{doctor.user.get_full_name}} <br>
+                      {{doctor.address}}, {{doctor.city}},<br>
+                      {{doctor.state}}, {{doctor.country}} <br>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="invoice-info invoice-info2">
+                    <strong class="customer-text">Invoice To</strong>
+                    <p class="invoice-details">
+                      {{doctor.user.get_full_name}} <br>
+                      {{doctor.address}}, {{doctor.city}}, <br>
+                      {{doctor.state}}, {{doctor.country}} <br>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="invoice-item">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="invoice-info">
+                    <strong class="customer-text">Payment Method</strong>
+                    <p class="invoice-details invoice-details-two">
+                      Manual <br>
+                      On Clinic <br>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="invoice-item invoice-table-wrap">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="invoice-table table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Description</th>
+                          <th class="text-center">Quantity</th>
+                          <th class="text-center">VAT</th>
+                          <th class="text-end">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>General Consultation</td>
+                          <td class="text-center">1</td>
+                          <td class="text-center">$0</td>
+                          <td class="text-end">${{doctor.price}}</td>
+                        </tr>
+                        <tr>
+                          <td>Message Chat Booking</td>
+                          <td class="text-center">1</td>
+                          <td class="text-center">$0</td>
+                          <td class="text-end">Free</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xl-4 ms-auto">
+                  <div class="table-responsive">
+                    <table class="invoice-table-two table">
+                      <tbody>
+                       
+                        <tr>
+                          <th>Total Amount:</th>
+                          <td><span>${{payment.amount}}</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="other-info">
+              <h4>Other information</h4>
+              <p class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed dictum
+                ligula, cursus blandit risus. Maecenas eget metus non tellus dignissim aliquam ut a ex. Maecenas sed
+                vehicula dui, ac suscipit lacus. Sed finibus leo vitae lorem interdum, eu scelerisque tellus fermentum.
+                Curabitur sit amet lacinia lorem. Nullam finibus pellentesque libero.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+</div>
+{% endblock %}

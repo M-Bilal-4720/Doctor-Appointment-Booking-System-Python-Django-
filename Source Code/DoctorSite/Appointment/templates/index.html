@@ -1,0 +1,392 @@
+﻿{% extends "basic.html" %}
+{% block containt %}
+{% load static %}
+  <section class="section section-banner" style="background-image: url(/static/assets/img/search-bg.png);">
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6">
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="banner-wrapper">
+            <div class="banner-header">
+              <h5>Be Hear Healthy</h5>
+              <h1>Lorem Ipsum <br><span>simply simply simply</span></h1>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                indstandard dummy text ever</p>
+              <div class="btn-col">
+                <ul>
+                 
+                  <li><a href="{% url 'contact' %}"
+                      class="btn btn-notfill">Contact Us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+
+
+  <section class="section popular-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h5>WHAT WE HAVE</h5>
+        <h2>Heart Care based Solutions</h2>
+        <p class="sub-title">We merge two services consulting and brilliant client Services for the patient healthcare.
+          Used latest technology in hospital.</p>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="solution-slider slider">
+
+            <div class="profile-widget">
+              <div class="doc-img">
+                <a href="">
+                  <img class="img-fluid" alt="User Image" src="{% static 'assets/img/solution1.png' %}">
+                </a>
+              </div>
+              <div class="pro-content">
+                <div class="specialities-img">
+                  <img src="{% static 'assets/img/specialities/specialities-01.png' %}" alt="">
+                </div>
+                <h5>SURGERY</h5>
+                <h3 class="title">
+                  Heart Surgery
+                </h3>
+                <p class="speciality">Lorem Ipsum is simply dummy text the printing and typesetting industry. </p>
+                <a href="{% url 'contact' %}"
+                  class="readmore-btn"><i class="fas fa-chevron-circle-right"></i> Read more</a>
+              </div>
+            </div>
+
+
+            <div class="profile-widget">
+              <div class="doc-img">
+                <a href="{% url 'about' %}">
+                  <img class="img-fluid" alt="User Image" src="{% static 'assets/img/solution2.png' %}">
+                </a>
+              </div>
+              <div class="pro-content">
+                <div class="specialities-img">
+                  <img src="{% static 'assets/img/specialities/specialities-02.png' %}" alt="">
+                </div>
+                <h5>SAVING LIVES</h5>
+                <h3 class="title">
+                  Valve Diseases
+                </h3>
+                <p class="speciality">Lorem Ipsum is simply dummy text the printing and typesetting industry. </p>
+                <a href="{% url 'contact' %}"
+                  class="readmore-btn"><i class="fas fa-chevron-circle-right"></i> Read more</a>
+              </div>
+            </div>
+
+
+            <div class="profile-widget">
+              <div class="doc-img">
+                <a href="{% url 'about' %}">
+                  <img class="img-fluid" alt="User Image" src="{% static 'assets/img/solution3.png' %}">
+                </a>
+              </div>
+              <div class="pro-content">
+                <div class="specialities-img">
+                  <img src="{% static 'assets/img/specialities/specialities-03.png' %}" alt="">
+                </div>
+                <h5>GREAT CARE</h5>
+                <h3 class="title">
+                  Children’s services
+                </h3>
+                <p class="speciality">Lorem Ipsum is simply dummy text the printing and typesetting industry. </p>
+                <a href="{% url 'contact' %}"
+                  class="readmore-btn"><i class="fas fa-chevron-circle-right"></i> Read more</a>
+              </div>
+            </div>
+
+
+            <div class="profile-widget">
+              <div class="doc-img">
+                <a href="">
+                  <img class="img-fluid" alt="User Image" src="{% static 'assets/img/solution1.png' %}">
+                </a>
+              </div>
+              <div class="pro-content">
+                <div class="specialities-img">
+                  <img src="{% static 'assets/img/specialities/specialities-01.png' %}" alt="">
+                </div>
+                <h5>SURGERY</h5>
+                <h3 class="title">
+                  Heart Surgery
+                </h3>
+                <p class="speciality">Lorem Ipsum is simply dummy text the printing and typesetting industry. </p>
+                <a href="{% url 'contact' %}"
+                  class="readmore-btn"><i class="fas fa-chevron-circle-right"></i> Read more</a>
+              </div>
+            </div>
+
+
+            <div class="profile-widget">
+              <div class="doc-img">
+                <a href="">
+                  <img class="img-fluid" alt="User Image" src="{% static 'assets/img/solution2.png' %}">
+                </a>
+              </div>
+              <div class="pro-content">
+                <div class="specialities-img">
+                  <img src="{% static 'assets/img/specialities/specialities-02.png' %}" alt="">
+                </div>
+                <h5>SAVING LIVES</h5>
+                <h3 class="title">
+                  Valve Diseases
+                </h3>
+                <p class="speciality">Lorem Ipsum is simply dummy text the printing and typesetting industry. </p>
+                <a href="{% url 'contact' %}"
+                  class="readmore-btn"><i class="fas fa-chevron-circle-right"></i> Read more</a>
+              </div>
+            </div>
+
+
+            <div class="profile-widget">
+              <div class="doc-img">
+                <a href="">
+                  <img class="img-fluid" alt="User Image" src="{% static 'assets/img/solution3.png' %}">
+                </a>
+              </div>
+              <div class="pro-content">
+                <div class="specialities-img">
+                  <img src="{% static 'assets/img/specialities/specialities-03.png' %}" alt="">
+                </div>
+                <h5>GREAT CARE</h5>
+                <h3 class="title">
+                  Children’s services
+                </h3>
+                <p class="speciality">Lorem Ipsum is simply dummy text the printing and typesetting industry. </p>
+                <a href="{% url 'contact' %}"
+                  class="readmore-btn"><i class="fas fa-chevron-circle-right"></i> Read more</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section aboutus-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <div class="left">
+            <div class="section-header">
+              <h5>WHY CHOOSE US</h5>
+              <h2>We are Achieve the Success of <span>Heart Surgery</span></h2>
+            </div>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+              scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+              of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+              like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <div class="feature-col row">
+              <div class="col-12 col-md-6">
+                <div class="feature-box">
+                  <div class="corner-img"><img src="{% static 'assets/img/feature1.png' %}" alt=""></div>
+                  <h2>870+</h2>
+                  <h6>Satisfied Patients</h6>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="feature-box">
+                  <div class="corner-img"><img src="{% static 'assets/img/feature2.png' %}" alt=""></div>
+                  <h2>1500+</h2>
+                  <h6>Patient/Year</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="right">
+            <img src="{% static 'assets/img/about-us.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="feature-list">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="feature-list-box">
+            <div class="number-col text-end">
+              <h5>01</h5>
+            </div>
+            <div class="feature-icon">
+              <img src="{% static 'assets/img/icon1.png' %}" alt="">
+            </div>
+            <h4>Personalized <br>Healthcare</h4>
+            <div class="plus-icon text-end"><i class="fas fa-plus-circle"></i></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="feature-list-box">
+            <div class="number-col text-end">
+              <h5>02</h5>
+            </div>
+            <div class="feature-icon">
+              <img src="{% static 'assets/img/icon2.png' %}" alt="">
+            </div>
+            <h4>Professional <br>Team</h4>
+            <div class="plus-icon text-end"><i class="fas fa-plus-circle"></i></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="feature-list-box">
+            <div class="number-col text-end">
+              <h5>03</h5>
+            </div>
+            <div class="feature-icon">
+              <img src="{% static 'assets/img/icon3.png' %}" alt="">
+            </div>
+            <h4>Regularly <br>checkup</h4>
+            <div class="plus-icon text-end"><i class="fas fa-plus-circle"></i></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="feature-list-box">
+            <div class="number-col text-end">
+              <h5>04</h5>
+            </div>
+            <div class="feature-icon">
+              <img src="{% static 'assets/img/icon4.png' %}" alt="">
+            </div>
+            <h4>Latest <br>Technology</h4>
+            <div class="plus-icon text-end"><i class="fas fa-plus-circle"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header text-center">
+        <h5>TESTIMONIALS</h5>
+        <h2>What Patient say about us</h2>
+        <p class="sub-title">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+          unknown printer took</p>
+      </div>
+      <div class="row">
+        <div class="col-12">
+
+          <div class="testimonials-slider slider">
+{% if reviews %}
+{% for review in reviews %}
+            <div class="testimonials-item">
+              <div class="card">
+                <div class="card-header">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="">
+                      <img src="/media/{{review.patient.patient_image}}" alt="" width="83" class="rounded-circle">
+                    </div>
+                    <div class="patient-details">
+                      <h5>{{review.patient.user.get_full_name}}</h5>
+                      <h6>{{review.doctor.specialization.name}}</h6>
+                    </div>
+                    <div>
+                      <img src="{% static 'assets/img/blockquotes.png' %}" alt="">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p>{{review.message}} </p>
+                </div>
+              </div>
+            </div>
+{% endfor %}
+{% endif %}
+
+
+           
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="choose-us" style="background-image: url(/static/assets/img/choose-us.png);">
+   
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <div class="left">
+            <div class="section-header">
+              <h5>OUR BENEFITS</h5>
+              <h2>Choose Our Cardiology <br>Healthcare Solutions</h2>
+            </div>
+            <div class="row">
+              <div class="col-12 col-lg-6">
+                <div class="choose-col">
+                  <div class="top-title d-flex align-items-center">
+                    <span><img src="{% static 'assets/img/check-mark.png' %}" alt=""></span>
+                    <span>Expert Nursing</span>
+                  </div>
+                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 500s, when an unknown
+                    printer took a galley of type</p>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="choose-col">
+                  <div class="top-title d-flex align-items-center">
+                    <span><img src="{% static 'assets/img/check-mark.png' %}" alt=""></span>
+                    <span>Heath care Expert</span>
+                  </div>
+                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 500s, when an unknown
+                    printer took a galley of type</p>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="choose-col">
+                  <div class="top-title d-flex align-items-center">
+                    <span><img src="{% static 'assets/img/check-mark.png' %}" alt=""></span>
+                    <span>Individual Approach</span>
+                  </div>
+                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 500s, when an unknown
+                    printer took a galley of type</p>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="choose-col">
+                  <div class="top-title d-flex align-items-center">
+                    <span><img src="{% static 'assets/img/check-mark.png' %}" alt=""></span>
+                    <span>Emergency Help</span>
+                  </div>
+                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 500s, when an unknown
+                    printer took a galley of type</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="right">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+</div>
+{% endblock %}

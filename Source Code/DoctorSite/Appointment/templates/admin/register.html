@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Doccure - Register</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets_admin/img/favicon-9.png' %}">
+
+    <link rel="stylesheet" href="{% static 'assets_admin/libs/bootstrap/css/bootstrap.min-9.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets_admin/css/font-awesome.min-9.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets_admin/css/feathericon.min-9.css' %}">
+    <link rel="stylesheet" href="{% static 'assets_admin/libs/morris/morris-9.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets_admin/libs/select2/dist/css/select2.min-9.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets_admin/css/bootstrap-datetimepicker.min-9.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets_admin/libs/fullcalendar/fullcalendar.min-9.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets_admin/libs/datatables/css/datatables.min-9.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets_admin/css/app-9.css' %}">
+</head>
+
+<body>
+
+    <div class="main-wrapper login-body">
+        <div class="login-wrapper">
+            <div class="container">
+                <div class="loginbox">
+                    <div class="login-left">
+                        <img class="img-fluid" src="{% static 'assets_admin/img/logo-white-1.png' %}" alt="Logo">
+                    </div>
+                    <div class="login-right">
+                        <div class="login-right-wrap">
+                            <h1>Register</h1>
+                            <p class="account-subtitle">Access to our dashboard</p>
+
+                            <form
+                                action="https://doccure.dreamguystech.com/laravel/template-cardiology/public/admin/custom-registration"
+                                method="POST">
+                                <input type="hidden" name="_token" value="RTSmU0Nt0jV0vVEqSpI6V24QDDyn90SNeCcbabsC">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" id="name" name="name" value=""
+                                        placeholder="Name">
+                                    <div class="text-danger pt-2">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" id="email_address" name="email"
+                                        placeholder="Email">
+                                    <div class="text-danger pt-2">
+                                    </div>
+                                </div>
+                                <div class="form-group password-icon">
+                                    <input type="password" id="password" class="form-control pass-input" name="password"
+                                        value="" placeholder="Password"><span
+                                        class="fa fa-eye-slash toggle-password pt-4"></span>
+                                    <div class="text-danger pt-2">
+                                    </div>
+                                </div>
+                                <div class="form-group mb-0">
+                                    <button class="btn btn-primary w-100" type="submit">Register</button>
+                                </div>
+                            </form>
+
+                            <div class="login-or">
+                                <span class="or-line"></span>
+                                <span class="span-or">or</span>
+                            </div>
+
+                            <div class="social-login">
+                                <span>Register with</span>
+                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a><a href="#"
+                                    class="google"><i class="fa fa-google"></i></a>
+                            </div>
+
+                            <div class="text-center dont-have">Already have an account? <a
+                                    href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/admin/login">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'assets_admin/libs/jquery/jquery.min-9.js' %}"></script>
+
+    <script src="{% static 'assets_admin/libs/bootstrap/js/bootstrap.bundle.min-9.js' %}"></script>
+
+    <script src="{% static 'assets_admin/libs/slimscroll/jquery.slimscroll.min-9.js' %}"></script>
+    <script src="{% static 'assets_admin/js/respond.min-9.js' %}"></script>
+
+    <script src="{% static 'assets_admin/js/pages/form-validation.init-9.js' %}"></script>
+
+    <script src="{% static 'assets_admin/js/jquery.maskedinput-9.js' %}"></script>
+    <script src="{% static 'assets_admin/js/pages/mask.init-9.js' %}"></script>
+
+    <script src="{% static 'assets_admin/libs/select2/dist/js/select2.min-9.js' %}"></script>
+
+    <script src="{% static 'assets_admin/js/moment.min-9.js' %}"></script>
+    <script src="{% static 'assets_admin/js/bootstrap-datetimepicker.min-9.js' %}"></script>
+
+    <script src="{% static 'assets_admin/js/jquery-ui.min-9.js' %}"></script>
+    <script src="{% static 'assets_admin/libs/fullcalendar/fullcalendar.min-9.js' %}"></script>
+    <script src="{% static 'assets_admin/js/pages/fullcalendar.init-9.js' %}"></script>
+
+    <script src="{% static 'assets_admin/libs/datatables/js/jquery.dataTables.min-9.js' %}"></script>
+    <script src="{% static 'assets_admin/libs/datatables/js/datatables.min-9.js' %}"></script>
+
+    <script src="{% static 'assets_admin/js/app-9.js' %}"></script>
+</body>
+
+</html>

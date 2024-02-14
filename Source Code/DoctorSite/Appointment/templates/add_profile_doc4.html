@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Doccure-Cardiology</title>
+    {% load static %}
+    <link type="image/x-icon" href="{% static 'assets/img/favicon.png' %}" rel="icon">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/bootstrap/css/bootstrap.min.css '%}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/fontawesome/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/libs/fontawesome/css/all.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/feather/feather.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/fancybox/jquery.fancybox.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/daterangepicker/daterangepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/select2/dist/css/select2.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/libs/dropzone/dropzone.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap-datetimepicker.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/fullcalendar/fullcalendar.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/app.css' %}">
+</head>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+
+                <div class="account-content">
+                    <div class="row align-items-center justify-content-center">
+
+                        <div class="col-md-12 col-lg-12 login-right">
+                            <div class="login-header">
+                                <h3>Doctor complete here profile</h3>
+                            </div>
+
+                            <form action="{% url 'profile_add_doc4'%}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                               
+
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Awards</h4>
+                                        <div class="awards-info">
+                                            <div class="row form-row awards-cont">
+                                                <div class="col-12 col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Awards</label>
+                                                        <input type="text" name="awards" required class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Year</label>
+                                                        <input type="text" name="award_year" required class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary w-20 btn-lg login-btn" type="submit">Submit</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script data-cfasync="false"
+    src="{% static '../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script>
+<script src="{% static 'assets/libs/jquery/jquery.min.js' %}"></script>
+
+<script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/libs/feather/feather.min.js' %}"></script>
+<script src="{% static 'assets/js/respond.min.js' %}"></script>
+
+<script src="{% static 'assets/js/moment.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap-datetimepicker.min.js' %}"></script>
+<script src="{% static 'assets/libs/daterangepicker/daterangepicker.js' %}"></script>
+
+<script src="{% static 'assets/js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'assets/libs/fullcalendar/fullcalendar.min.js' %}"></script>
+<script src="{% static 'assets/js/pages/fullcalendar.init.js' %}"></script>
+
+<script src="{% static 'assets/libs/theia-sticky-sidebar/dist/ResizeSensor.js' %}"></script>
+<script src="{% static 'assets/libs/theia-sticky-sidebar/dist/theia-sticky-sidebar.js' %}"></script>
+
+<script src="{% static 'assets/libs/select2/dist/js/select2.min.js' %}"></script>
+
+<script src="{% static 'assets/libs/fancybox/jquery.fancybox.min.js' %}"></script>
+
+<script src="{% static 'assets/libs/dropzone/dropzone-min.js' %}"></script>
+<script src="{% static 'assets/js/pages/dropzone.init.js' %}"></script>
+
+<script src="{% static 'assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.js' %}"></script>
+
+<script src="{% static 'assets/js/pages/profile-settings.init.js' %}"></script>
+
+<script src="{% static 'assets/js/circle-progress.min.js' %}"></script>
+
+<script src="{% static 'assets/js/slick.js' %}"></script>
+
+<script src="{% static 'assets/js/app.js' %}"></script>
+
+</html>
+<script>
+    $(document).ready(function () {
+        // alert(1);
+        /*$('.submenu li a').click(function(){
+          $(.submenu li a).removeClass("active");
+          $(this).addClass("active");
+          $('.has-submenu a').removeClass("active");
+          $('.has-submenu a').addClass("active");
+          
+          //$(this).toggleClass("active");
+        });*/
+    });
+</script>

@@ -1,0 +1,132 @@
+﻿{% extends "admin/layout.html" %}
+{% block img1 %}{{subadmin.admin_image}}{% endblock %}
+{% block img %}<img src="/media/{{subadmin.admin_image}}" alt="User Image"
+                                    class="avatar-img rounded-circle">{% endblock %}
+{% block user %}{{c_user.first_name}} {{c_user.last_name}}{% endblock %}
+{% block body %}
+{% load static %}
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title">Profile</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a
+                                        href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index_admin">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active">Profile</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="profile-header">
+                            <div class="row align-items-center">
+                                <div class="col-auto profile-image">
+                                    <a href="#">
+                                        <img class="rounded-circle" alt="User Image"
+                                            src="/media/{{appointment.patient.patient_image}}">
+                                    </a>
+                                </div>
+                                <div class="col ml-md-n2 profile-user-info">
+                                    <h4 class="user-name mb-0">{{appointments.patent.user.get_full_name}}</h4>
+                                    <h6 class="text-muted"><a href="">{{appointments.patent.user.email}}</a>
+                                    </h6>
+                                    <div class="user-Location"><i class="fa fa-map-marker"></i> {{appointments.patient.city}}, {{appointments.patient.country}}
+                                    </div>
+                                    <div class="about-text"></div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <div class="profile-menu">
+                            <ul class="nav nav-tabs nav-tabs-solid">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#per_details_tab">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#password_tab">Password</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content profile-tab-cont">
+
+                            <div class="tab-pane fade show active" id="per_details_tab">
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title d-flex justify-content-between">
+                                                    <span>Personal Details</span>
+                                                  
+                                                </h5>
+                                                <div class="row">
+                                                    <p class="col-sm-2 text-muted text-end mb-0 mb-sm-3">Name</p>
+                                                    <p class="col-sm-10">{{appointments.patient.user.get_full_name}}</p>
+                                                </div>
+                                                <div class="row">
+                                                    <p class="col-sm-2 text-muted text-end mb-0 mb-sm-3">Date of Birth
+                                                    </p>
+                                                    <p class="col-sm-10">{{appointment.patient.date_birth|date:'Y-m-d'}}</p>
+                                                </div>
+                                                <div class="row">
+                                                    <p class="col-sm-2 text-muted text-end mb-0 mb-sm-3">Email ID</p>
+                                                    <p class="col-sm-10"><a href="">{{appointments.patient.user.email}}</a>
+                                                    </p>
+                                                </div>
+                                                <div class="row">
+                                                    <p class="col-sm-2 text-muted text-end mb-0 mb-sm-3">Mobile</p>
+                                                    <p class="col-sm-10">{{appointments.patient.phone}}</p>
+                                                </div>
+                                                <div class="row">
+                                                    <p class="col-sm-2 text-muted text-end mb-0">Address</p>
+                                                    <p class="col-sm-10 mb-0">{{appointments.patient.city}}<br>
+                                                        {{appointments.patient.state}},<br>
+                                                        {{appointments.patient.country}}.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                       
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div id="password_tab" class="tab-pane fade">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Add Payment Record</h5>
+                                        <div class="row">
+                                            <div class="col-md-10 col-lg-6">
+                                                <form method="POST" action="{% url 'ad_password_ch' %}">{% csrf_token %}
+                                                    
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="amount" value="{{appointments.doctor.price}}">
+                                                        <input type="hidden" name="doctor_id" value="{{appointments.doctor.id}}">
+                                                        <input type="hidden" name="patient_id" value="{{appointments.patient.id}}">
+                                                    </div>
+                                                    <button class="btn btn-primary" type="submit">Add Payment</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

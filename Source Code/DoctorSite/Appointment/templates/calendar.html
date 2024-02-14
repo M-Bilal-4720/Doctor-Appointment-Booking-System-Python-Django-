@@ -1,0 +1,459 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<title>Doccure-Cardiology</title>
+
+<link type="image/x-icon" href="assets/img/favicon-22.png" rel="icon">
+
+<link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min-22.css">
+
+<link rel="stylesheet" href="assets/libs/fontawesome/css/fontawesome.min-22.css">
+<link rel="stylesheet" href="assets/libs/fontawesome/css/all.min-22.css">
+
+<link rel="stylesheet" href="assets/libs/feather/feather-22.css">
+
+<link rel="stylesheet" href="assets/libs/fancybox/jquery.fancybox.min-22.css">
+
+<link rel="stylesheet" href="assets/libs/daterangepicker/daterangepicker-22.css">
+
+<link rel="stylesheet" href="assets/libs/select2/dist/css/select2.min-22.css">
+
+<link rel="stylesheet" href="assets/libs/bootstrap-tagsinput/bootstrap-tagsinput-22.css">
+<link rel="stylesheet" href="assets/libs/dropzone/dropzone-22.css">
+
+<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min-22.css">
+
+<link rel="stylesheet" href="assets/libs/fullcalendar/fullcalendar.min-22.css">
+
+<link rel="stylesheet" href="assets/css/app-22.css">
+</head>
+<div class="main-wrapper">
+
+<header class="header">
+<nav class="navbar navbar-expand-lg header-nav">
+<div class="navbar-header">
+<a id="mobile_btn" href="javascript:void(0);">
+<span class="bar-icon">
+<span></span>
+<span></span>
+<span></span>
+</span>
+</a>
+<a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index" class="navbar-brand logo">
+<img src="assets/img/logo-22.png" class="img-fluid" alt="Logo">
+</a>
+</div>
+<div class="main-menu-wrapper">
+<div class="menu-header">
+<a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index" class="menu-logo">
+<img src="assets/img/logo-22.png" class="img-fluid" alt="Logo">
+</a>
+<a id="menu_close" class="menu-close" href="javascript:void(0);">
+<i class="fas fa-times"></i>
+</a>
+</div>
+<ul class="main-nav">
+<li class="">
+<a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index">Home</a>
+</li>
+<li class="has-submenu ">
+<a href="">Doctors <i class="fas fa-chevron-down"></i></a>
+<ul class="submenu">
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/doctor-dashboard">Doctor Dashboard</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/appointments">Appointments</a></li> 
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/schedule-timings">Schedule Timing</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/my-patients">Patients List</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile">Patients Profile</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/chat-doctor">Chat</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoices">Invoices</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/doctor-profile-settings">Profile Settings</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/reviews">Reviews</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/doctor-register">Doctor Register</a></li>
+</ul>
+</li>
+<li class="has-submenu ">
+<a href="">Patients <i class="fas fa-chevron-down"></i></a>
+<ul class="submenu">
+<li class="has-submenu ">
+<a href="#">Doctors</a>
+<ul class="submenu">
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/map-grid">Map Grid</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/map-list">Map List</a></li>
+</ul>
+</li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/search">Search Doctor</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/doctor-profile">Doctor Profile</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/booking">Booking</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/checkout">Checkout</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/booking-success">Booking Success</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-dashboard">Patient Dashboard</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/favourites">Favourites</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/chat">Chat</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/profile-settings">Profile Settings</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/change-password">Change Password</a></li>
+</ul>
+</li>
+<li class="has-submenu active">
+<a href="">Pages <i class="fas fa-chevron-down"></i></a>
+<ul class="submenu">
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/voice-call">Voice Call</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/video-call">Video Call</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/search">Search Doctors</a></li>
+<li class="active"><a href="calendar.html">Calendar</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/components">Components</a></li>
+<li class="has-submenu ">
+<a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoices">Invoices</a>
+ <ul class="submenu">
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoices">Invoices</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view">Invoice View</a></li>
+</ul>
+</li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/blank-page">Starter Page</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/about-us">About-Us</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/contact-us">Contact-Us</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/login">Login</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/register">Register</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/forgot-password">Forgot Password</a></li>
+</ul>
+</li>
+<li class="has-submenu ">
+<a href="">Blog <i class="fas fa-chevron-down"></i></a>
+<ul class="submenu">
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/blog-list">Blog List</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/blog-grid">Blog Grid</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/blog-details">Blog Details</a></li>
+</ul>
+</li>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/admin/login" target="_blank">Admin</a></li>
+</ul>
+</div>
+<ul class="nav header-navbar-rht">
+<li class="nav-item contact-item">
+<div class="header-contact-img">
+<i class="far fa-hospital"></i>
+</div>
+<div class="header-contact-detail">
+<p class="contact-header">Contact</p>
+<p class="contact-info-header"> +1 315 369 5943</p>
+</div>
+<li class="nav-item">
+<a class="nav-link header-login" href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/login">login / Signup </a>
+</li>
+
+</ul>
+</nav>
+</header>
+
+<div class="breadcrumb-bar">
+<div class="container-fluid">
+<div class="row align-items-center">
+<div class="col">
+<nav aria-label="breadcrumb" class="page-breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">Calendar</li>
+</ol>
+</nav>
+<h2 class="breadcrumb-title">Calendar</h2>
+</div>
+<div class="col-auto text-end float-end ms-auto">
+<a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#add_event">Create Event</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="content">
+<div class="container-fluid">
+<div class="row">
+
+<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+<div class="card">
+<div class="card-header">
+<h4 class="card-title mb-0">Drag & Drop Event</h4>
+</div>
+<div class="card-body">
+<div id="calendar-events" class="mb-3">
+<div class="calendar-events" data-class="bg-info"><i class="fas fa-circle text-info"></i> My Event One</div>
+<div class="calendar-events" data-class="bg-success"><i class="fas fa-circle text-success"></i> My Event Two</div>
+<div class="calendar-events" data-class="bg-danger"><i class="fas fa-circle text-danger"></i> My Event Three</div>
+<div class="calendar-events" data-class="bg-warning"><i class="fas fa-circle text-warning"></i> My Event Four</div>
+</div>
+<div class="checkbox mb-3">
+<input id="drop-remove" type="checkbox">
+<label for="drop-remove">
+Remove after drop
+</label>
+</div>
+<a href="#" data-bs-toggle="modal" data-bs-target="#add_new_event" class="btn btn-primary w-100">
+<i class="fas fa-plus"></i> Add Category
+</a>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-7 col-lg-8 col-xl-9">
+<div class="card">
+<div class="card-body">
+<div id="calendar"></div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="add_event" class="modal custom-modal fade" role="dialog">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title">Add Event</h4>
+<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form>
+<div class="form-group">
+<label>Event Name <span class="text-danger">*</span></label>
+<input class="form-control" type="text">
+</div>
+<div class="form-group">
+<label>Event Date <span class="text-danger">*</span></label>
+<div class="cal-icon">
+<input class="form-control datetimepicker" type="text">
+</div>
+</div>
+<div class="submit-section">
+<button class="btn btn-primary submit-btn">Submit</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal custom-modal fade none-border" id="my_event">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title">Add Event</h4>
+<button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+</div>
+<div class="modal-body"></div>
+<div class="modal-footer justify-content-center">
+<button type="button" class="btn btn-success save-event submit-btn">Create event</button>
+<button type="button" class="btn btn-danger delete-event submit-btn" data-bs-dismiss="modal">Delete</button>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal custom-modal fade" id="add_new_event">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title">Add Category</h4>
+<button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+</div>
+<div class="modal-body">
+<form>
+<div class="form-group">
+<label>Category Name</label>
+<input class="form-control form-white" placeholder="Enter name" type="text" name="category-name">
+</div>
+<div class="form-group">
+<label>Choose Category Color</label>
+<select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+<option value="success">Success</option>
+<option value="danger">Danger</option>
+<option value="info">Info</option>
+<option value="primary">Primary</option>
+<option value="warning">Warning</option>
+<option value="inverse">Inverse</option>
+</select>
+</div>
+<div class="submit-section text-center">
+<button type="button" class="btn btn-primary save-category submit-btn" data-bs-dismiss="modal">Save</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+<footer class="footer">
+
+<div class="footer-top">
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-3 col-md-6">
+
+<div class="footer-widget footer-about">
+<div class="footer-logo">
+<img src="assets/img/footer-logo-20.png" alt="logo">
+</div>
+<div class="footer-about-content">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+<div class="social-icon">
+<ul>
+<li>
+<a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+</li>
+<li>
+<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+</li>
+<li>
+<a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+</li>
+<li>
+<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+</li>
+<li>
+<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+<div class="col-lg-3 col-md-6">
+
+<div class="footer-widget footer-menu">
+<h2 class="footer-title">For Patients</h2>
+<ul>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/search">Search for Doctors</a></li>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/login">Login</a></li>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/register">Register</a></li>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/booking">Booking</a></li>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-dashboard">Patient Dashboard</a></li>
+</ul>
+</div>
+
+</div>
+<div class="col-lg-3 col-md-6">
+
+<div class="footer-widget footer-menu">
+<h2 class="footer-title">For Doctors</h2>
+<ul>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/appointments">Appointments</a></li>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/chat">Chat</a></li>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/login">Login</a></li>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/doctor-register">Register</a></li>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/doctor-dashboard">Doctor Dashboard</a></li>
+</ul>
+</div>
+
+</div>
+<div class="col-lg-3 col-md-6">
+
+<div class="footer-widget footer-contact">
+<h2 class="footer-title">Contact Us</h2>
+<div class="footer-contact-info">
+<div class="footer-address">
+<span><i class="fas fa-map-marker-alt"></i></span>
+<p> 3556 Beech Street, San Francisco,<br> California, CA 94108 </p>
+</div>
+<p>
+<i class="fas fa-mobile-alt"></i>
++1 315 369 5943
+</p>
+<p class="mb-0">
+<i class="fas fa-envelope"></i>
+<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c3a7aca0a0b6b1a683a6bba2aeb3afa6eda0acae">[email&#160;protected]</a>
+</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="footer-bottom">
+<div class="container-fluid">
+
+<div class="copyright">
+<div class="row">
+<div class="col-md-6 col-lg-6">
+<div class="copyright-text">
+<p class="mb-0">&copy; 2022 Doccure. All rights reserved.</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-6">
+
+<div class="copyright-menu">
+<ul class="policy-menu">
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/term-condition">Terms and Conditions</a></li>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/privacy-policy">Policy</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</footer>
+<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min-22.js"></script><script src="assets/libs/jquery/jquery.min-22.js"></script>
+
+<script src="assets/libs/bootstrap/js/bootstrap.bundle.min-22.js"></script>
+<script src="assets/libs/feather/feather.min-22.js"></script>
+<script src="assets/js/respond.min-22.js"></script>
+
+<script src="assets/js/moment.min-22.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min-22.js"></script>
+<script src="assets/libs/daterangepicker/daterangepicker-22.js"></script>
+
+<script src="assets/js/jquery-ui.min-22.js"></script>
+<script src="assets/libs/fullcalendar/fullcalendar.min-22.js"></script>
+<script src="assets/js/pages/fullcalendar.init-22.js"></script>
+
+<script src="assets/libs/theia-sticky-sidebar/dist/ResizeSensor-22.js"></script>
+ <script src="assets/libs/theia-sticky-sidebar/dist/theia-sticky-sidebar-22.js"></script>
+
+<script src="assets/libs/select2/dist/js/select2.min-22.js"></script>
+
+<script src="assets/libs/fancybox/jquery.fancybox.min-22.js"></script>
+
+<script src="assets/libs/dropzone/dropzone-min-22.js"></script>
+<script src="assets/js/pages/dropzone.init-22.js"></script>
+
+<script src="assets/libs/bootstrap-tagsinput/bootstrap-tagsinput-22.js"></script>
+
+<script src="assets/js/pages/profile-settings.init-22.js"></script>
+
+<script src="assets/js/circle-progress.min-22.js"></script>
+
+<script src="assets/js/slick-22.js"></script>
+
+<script src="assets/js/app-22.js"></script>
+
+</html>
+<script>
+$(document).ready(function(){
+  // alert(1);
+ /*$('.submenu li a').click(function(){
+   $(.submenu li a).removeClass("active");
+   $(this).addClass("active");
+   $('.has-submenu a').removeClass("active");
+   $('.has-submenu a').addClass("active");
+   
+   //$(this).toggleClass("active");
+ });*/
+});
+</script>

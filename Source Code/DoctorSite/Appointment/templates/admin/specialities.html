@@ -1,0 +1,159 @@
+﻿{% extends "admin/layout.html" %}
+{% block img1 %}{{subadmin.admin_image}}{% endblock %}
+{% block img %}<img src="/media/{{subadmin.admin_image}}" alt="User Image"
+                                    class="avatar-img rounded-circle">{% endblock %}
+{% block user %}{{c_user.first_name}} {{c_user.last_name}}{% endblock %}
+{% block body %}
+{% load static %}
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-7 col-auto">
+                            <h3 class="page-title">Specialities</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a
+                                        href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index_admin">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active">Specialities</li>
+                            </ul>
+                        </div>
+                       
+                        <div class="col-sm-5 col">
+                            <a href="#Add_Specialities_details" data-bs-toggle="modal"
+                                class="btn btn-primary float-end mt-2">Add</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                 {% if messages %}
+                           {% for message in messages %}
+                            <div class="alert alert-success" >
+                                 {{message}}
+                            </div>
+                          {% endfor %}
+                            {% endif %}
+                                <div class="table-responsive">
+                                    <table class="datatable table table-hover table-center mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Specialities</th>
+                                                <th class="text-end">Actions</th>
+                                            </tr>
+                                        </thead>
+                                       <tbody>
+                                        {% for specialty in specialtys %}
+                                            <tr>
+                                                <td>#SP:{{specialty.id}}</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href=""
+                                                            class="avatar avatar-sm me-2">
+                                                            <img class="avatar-img"
+                                                                src="/media/{{specialty.special_image}}"
+                                                                alt="Speciality">
+                                                        </a>
+                                                        <a
+                                                            href="">{{specialty.name}}</a>
+                                                    </h2>
+                                                </td>
+                                                <td class="text-end">
+                                                    <div class="actions">
+                                                       <a class="btn btn-sm bg-success-light edit-specialty-btn" href="{% url 'update_specialty' specialty.id %}">
+                    <i class="fe fe-pencil"></i> Edit
+                                                       </a>
+                                                        <a href="{% url 'delete_specialty' specialty.id %}"
+                                                            class="btn btn-sm bg-danger-light">
+                                                            <i class="fe fe-trash"></i> Delete</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="modal fade" id="Add_Specialities_details" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Specialities</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{% url 'add_specialities' %}" enctype="multipart/form-data">{% csrf_token %}
+                        <div class="row form-row">
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Specialities</label>
+                                    <input type="text" name="name" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    <input type="file" name="special_image" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="update_specialization" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Specialities</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+    {% csrf_token %}
+    <div class="row form-row">
+        <div class="col-12 col-sm-6">
+            <div class="form-group">
+                <label>Specialties</label>
+                <input type="text" class="form-control" name="name" value="{{ specialty.name }}">
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <div class="form-group">
+                <label>Image</label>
+                <input type="file" class="form-control">
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+</form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,720 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<title>Doccure-Cardiology</title>
+
+<link type="image/x-icon" href="assets/img/favicon-18.png" rel="icon">
+
+<link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min-18.css">
+
+<link rel="stylesheet" href="assets/libs/fontawesome/css/fontawesome.min-18.css">
+<link rel="stylesheet" href="assets/libs/fontawesome/css/all.min-18.css">
+
+<link rel="stylesheet" href="assets/libs/feather/feather-18.css">
+
+<link rel="stylesheet" href="assets/libs/fancybox/jquery.fancybox.min-18.css">
+
+<link rel="stylesheet" href="assets/libs/daterangepicker/daterangepicker-18.css">
+
+<link rel="stylesheet" href="assets/libs/select2/dist/css/select2.min-18.css">
+
+<link rel="stylesheet" href="assets/libs/bootstrap-tagsinput/bootstrap-tagsinput-18.css">
+<link rel="stylesheet" href="assets/libs/dropzone/dropzone-18.css">
+
+<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min-18.css">
+
+<link rel="stylesheet" href="assets/libs/fullcalendar/fullcalendar.min-18.css">
+
+<link rel="stylesheet" href="assets/css/app-18.css">
+</head>
+<body class="chat-page">
+<div class="main-wrapper">
+
+<header class="header">
+<nav class="navbar navbar-expand-lg header-nav">
+<div class="navbar-header">
+<a id="mobile_btn" href="javascript:void(0);">
+<span class="bar-icon">
+<span></span>
+<span></span>
+<span></span>
+</span>
+</a>
+<a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index" class="navbar-brand logo">
+<img src="assets/img/logo-18.png" class="img-fluid" alt="Logo">
+</a>
+</div>
+<div class="main-menu-wrapper">
+<div class="menu-header">
+<a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index" class="menu-logo">
+<img src="assets/img/logo-18.png" class="img-fluid" alt="Logo">
+</a>
+<a id="menu_close" class="menu-close" href="javascript:void(0);">
+<i class="fas fa-times"></i>
+</a>
+</div>
+<ul class="main-nav">
+<li class="">
+<a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index">Home</a>
+</li>
+<li class="has-submenu active">
+<a href="">Doctors <i class="fas fa-chevron-down"></i></a>
+<ul class="submenu">
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/doctor-dashboard">Doctor Dashboard</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/appointments">Appointments</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/schedule-timings">Schedule Timing</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/my-patients">Patients List</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile">Patients Profile</a></li>
+<li class="active"><a href="chat-doctor-1.html">Chat</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoices">Invoices</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/doctor-profile-settings">Profile Settings</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/reviews">Reviews</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/doctor-register">Doctor Register</a></li>
+</ul>
+</li>
+<li class="has-submenu ">
+<a href="">Patients <i class="fas fa-chevron-down"></i></a>
+<ul class="submenu">
+<li class="has-submenu ">
+<a href="#">Doctors</a>
+<ul class="submenu">
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/map-grid">Map Grid</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/map-list">Map List</a></li>
+</ul>
+</li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/search">Search Doctor</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/doctor-profile">Doctor Profile</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/booking">Booking</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/checkout">Checkout</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/booking-success">Booking Success</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-dashboard">Patient Dashboard</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/favourites">Favourites</a></li>
+<li class=""><a href="chat.html">Chat</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/profile-settings">Profile Settings</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/change-password">Change Password</a></li>
+</ul>
+</li>
+<li class="has-submenu ">
+<a href="">Pages <i class="fas fa-chevron-down"></i></a>
+<ul class="submenu">
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/voice-call">Voice Call</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/video-call">Video Call</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/search">Search Doctors</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/calendar">Calendar</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/components">Components</a></li>
+<li class="has-submenu ">
+<a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoices">Invoices</a>
+<ul class="submenu">
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoices">Invoices</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view">Invoice View</a></li>
+</ul>
+</li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/blank-page">Starter Page</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/about-us">About-Us</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/contact-us">Contact-Us</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/login">Login</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/register">Register</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/forgot-password">Forgot Password</a></li>
+</ul>
+</li>
+<li class="has-submenu ">
+<a href="">Blog <i class="fas fa-chevron-down"></i></a>
+<ul class="submenu">
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/blog-list">Blog List</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/blog-grid">Blog Grid</a></li>
+<li class=""><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/blog-details">Blog Details</a></li>
+</ul>
+</li>
+<li><a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/admin/login" target="_blank">Admin</a></li>
+</ul>
+</div>
+<ul class="nav header-navbar-rht">
+<li class="nav-item contact-item">
+<div class="header-contact-img">
+<i class="far fa-hospital"></i>
+</div>
+<div class="header-contact-detail">
+<p class="contact-header">Contact</p>
+<p class="contact-info-header"> +1 315 369 5943</p>
+</div>
+</li>
+
+<li class="nav-item dropdown has-arrow logged-item">
+<a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+<span class="user-img">
+<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02-13.jpg" width="31" alt="Darren Elder">
+</span>
+</a>
+<div class="dropdown-menu dropdown-menu-right">
+<div class="user-header">
+<div class="avatar avatar-sm">
+<img src="assets/img/doctors/doctor-thumb-02-13.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+<div class="user-text">
+<h6>Darren Elder</h6>
+<p class="text-muted mb-0">Doctor</p>
+</div>
+</div>
+<a class="dropdown-item" href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/doctor-dashboard">Dashboard</a>
+<a class="dropdown-item" href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/doctor-profile-settings">Profile Settings</a>
+<a class="dropdown-item" href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/login">Logout</a>
+</div>
+</li>
+
+</ul>
+</nav>
+</header>
+ 
+<div class="content">
+<div class="container-fluid px-0">
+<div class="row">
+<div class="col-xl-12">
+<div class="chat-window">
+
+<div class="chat-cont-left">
+<div class="chat-header">
+<span>Chats</span>
+<a href="javascript:void(0)" class="chat-compose">
+<i class="material-icons">control_point</i>
+</a>
+</div>
+<form class="chat-search">
+<div class="input-group">
+<div class="input-group-prepend">
+<i class="fas fa-search"></i>
+</div>
+<input type="text" class="form-control rounded-pill" placeholder="Search">
+</div>
+</form>
+<div class="chat-users-list">
+<div class="chat-scroll">
+<a href="javascript:void(0);" class="media d-flex">
+<div class="media-img-wrap flex-shrink-0">
+<div class="avatar avatar-away">
+<img src="assets/img/patients/patient-9.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+</div>
+<div class="media-body flex-grow-1">
+<div>
+<div class="user-name">George Anderson</div>
+<div class="user-last-chat">Hey, How are you?</div>
+</div>
+<div>
+<div class="last-chat-time block">2 min</div>
+<div class="badge badge-success rounded-pill">15</div>
+</div>
+</div>
+</a>
+<a href="javascript:void(0);" class="media read-chat active d-flex">
+<div class="media-img-wrap flex-shrink-0">
+<div class="avatar avatar-online">
+<img src="assets/img/patients/patient1-6.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+</div>
+<div class="media-body flex-grow-1">
+<div>
+<div class="user-name">Megan Bird</div>
+<div class="user-last-chat">I'll call you later </div>
+</div>
+<div>
+<div class="last-chat-time block">8:01 PM</div>
+</div>
+</div>
+</a>
+<a href="javascript:void(0);" class="media d-flex">
+<div class="media-img-wrap flex-shrink-0">
+<div class="avatar avatar-away">
+<img src="assets/img/patients/patient2-7.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+</div>
+<div class="media-body flex-grow-1">
+<div>
+<div class="user-name">Alvin Boykin </div>
+<div class="user-last-chat">Give me a full explanation about our project</div>
+</div>
+<div>
+<div class="last-chat-time block">7:30 PM</div>
+<div class="badge badge-success rounded-pill">3</div>
+</div>
+</div>
+</a>
+<a href="javascript:void(0);" class="media read-chat d-flex">
+<div class="media-img-wrap flex-shrink-0">
+<div class="avatar avatar-online">
+<img src="assets/img/patients/patient3-7.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+</div>
+<div class="media-body flex-grow-1">
+<div>
+<div class="user-name">Nicholas Hicks</div>
+<div class="user-last-chat">That's very good UI design</div>
+</div>
+<div>
+<div class="last-chat-time block">6:59 PM</div>
+</div>
+</div>
+</a>
+<a href="javascript:void(0);" class="media read-chat d-flex">
+<div class="media-img-wrap flex-shrink-0">
+<div class="avatar avatar-offline">
+<img src="assets/img/patients/patient4-7.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+</div>
+<div class="media-body flex-grow-1">
+<div>
+<div class="user-name">Sherri McCarthy</div>
+<div class="user-last-chat">Yesterday i completed the task</div>
+</div>
+<div>
+<div class="last-chat-time block">11:21 AM</div>
+</div>
+</div>
+</a>
+<a href="javascript:void(0);" class="media read-chat d-flex">
+<div class="media-img-wrap flex-shrink-0">
+<div class="avatar avatar-online">
+<img src="assets/img/patients/patient5-7.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+</div>
+<div class="media-body flex-grow-1">
+<div>
+<div class="user-name">Roger Loyd</div>
+<div class="user-last-chat">What is the major functionality?</div>
+</div>
+<div>
+<div class="last-chat-time block">10:05 AM</div>
+</div>
+</div>
+</a>
+<a href="javascript:void(0);" class="media read-chat d-flex">
+<div class="media-img-wrap flex-shrink-0">
+<div class="avatar avatar-away">
+<img src="assets/img/patients/patient6-6.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+</div>
+<div class="media-body flex-grow-1">
+<div>
+<div class="user-name">Francis Giordano</div>
+<div class="user-last-chat">This has allowed me to showcase not only my technical skills</div>
+</div>
+<div>
+<div class="last-chat-time block">Yesterday</div>
+</div>
+</div>
+</a>
+<a href="javascript:void(0);" class="media read-chat d-flex">
+<div class="media-img-wrap flex-shrink-0">
+<div class="avatar avatar-offline">
+<img src="assets/img/patients/patient7-5.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+</div>
+<div class="media-body flex-grow-1">
+<div>
+<div class="user-name">Kate Mason</div>
+<div class="user-last-chat">Let's talk briefly in the evening. </div>
+</div>
+<div>
+<div class="last-chat-time block">Sunday</div>
+</div>
+</div>
+</a>
+<a href="javascript:void(0);" class="media read-chat d-flex">
+<div class="media-img-wrap flex-shrink-0">
+<div class="avatar avatar-online">
+<img src="assets/img/patients/patient8-6.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+</div>
+<div class="media-body flex-grow-1">
+<div>
+<div class="user-name">Glenn Johnson</div>
+<div class="user-last-chat">Do you have any collections? If so, what of?</div>
+</div>
+<div>
+<div class="last-chat-time block">Saturday</div>
+</div>
+</div>
+</a>
+<a href="javascript:void(0);" class="media read-chat d-flex">
+<div class="media-img-wrap flex-shrink-0">
+<div class="avatar avatar-away">
+<img src="assets/img/patients/patient9-6.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+</div>
+<div class="media-body flex-grow-1">
+ <div>
+<div class="user-name">Monty Smith</div>
+<div class="user-last-chat">Connect the two modules with in 1 day.</div>
+</div>
+<div>
+<div class="last-chat-time block">Friday</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+
+
+<div class="chat-cont-right">
+<div class="chat-header">
+<a id="back_user_list" href="javascript:void(0)" class="back-user-list">
+<i class="material-icons">chevron_left</i>
+</a>
+<div class="media d-flex">
+<div class="media-img-wrap flex-shrink-0">
+<div class="avatar avatar-online">
+<img src="assets/img/patients/patient-9.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+</div>
+<div class="media-body flex-grow-1">
+<div class="user-name">George Anderson</div>
+<div class="user-status">online</div>
+</div>
+</div>
+<div class="chat-options">
+<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#voice_call">
+<i class="material-icons">local_phone</i>
+</a>
+<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#video_call">
+<i class="material-icons">videocam</i>
+</a>
+<a href="javascript:void(0)">
+<i class="material-icons">more_vert</i>
+</a>
+</div>
+</div>
+<div class="chat-body">
+<div class="chat-scroll">
+<ul class="list-unstyled">
+<li class="media sent d-flex">
+<div class="media-body flex-grow-1">
+<div class="msg-box">
+<div>
+<p>Hello. What can I do for you?</p>
+<ul class="chat-msg-info">
+<li>
+<div class="chat-time">
+<span>8:30 AM</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li class="media received d-flex">
+<div class="avatar flex-shrink-0">
+<img src="assets/img/patients/patient-9.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+<div class="media-body flex-grow-1">
+<div class="msg-box">
+<div>
+<p>I'm just looking around.</p>
+<p>Will you tell me something about yourself?</p>
+<ul class="chat-msg-info">
+<li>
+<div class="chat-time">
+<span>8:35 AM</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="msg-box">
+<div>
+<p>Are you there? That time!</p>
+<ul class="chat-msg-info">
+<li>
+<div class="chat-time">
+<span>8:40 AM</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="msg-box">
+<div>
+<div class="chat-msg-attachments">
+<div class="chat-attachment">
+<img src="assets/img/img-02-1.jpg" alt="Attachment">
+<div class="chat-attach-caption">placeholder.jpg</div>
+<a href="" class="chat-attach-download">
+<i class="fas fa-download"></i>
+</a>
+</div>
+<div class="chat-attachment">
+<img src="assets/img/img-03-1.jpg" alt="Attachment">
+<div class="chat-attach-caption">placeholder.jpg</div>
+<a href="" class="chat-attach-download">
+<i class="fas fa-download"></i>
+</a>
+</div>
+</div>
+<ul class="chat-msg-info">
+<li>
+<div class="chat-time">
+<span>8:41 AM</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li class="media sent d-flex">
+<div class="media-body flex-grow-1">
+<div class="msg-box">
+<div>
+<p>Where?</p>
+<ul class="chat-msg-info">
+<li>
+<div class="chat-time">
+<span>8:42 AM</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="msg-box">
+<div>
+<p>OK, my name is Limingqiang. I like singing, playing basketballand so on.</p>
+<ul class="chat-msg-info">
+<li>
+<div class="chat-time">
+<span>8:42 AM</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="msg-box">
+<div>
+<div class="chat-msg-attachments">
+<div class="chat-attachment">
+<img src="assets/img/img-04-1.jpg" alt="Attachment">
+<div class="chat-attach-caption">placeholder.jpg</div>
+<a href="" class="chat-attach-download">
+<i class="fas fa-download"></i>
+</a>
+</div>
+</div>
+<ul class="chat-msg-info">
+<li>
+<div class="chat-time">
+<span>8:50 AM</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li class="media received d-flex">
+<div class="avatar flex-shrink-0">
+<img src="assets/img/patients/patient-9.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+<div class="media-body flex-grow-1">
+<div class="msg-box">
+<div>
+<p>You wait for notice.</p>
+<p>Consectetuorem ipsum dolor sit?</p>
+<p>Ok?</p>
+<ul class="chat-msg-info">
+<li>
+<div class="chat-time">
+<span>8:55 PM</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li class="chat-date">Today</li>
+<li class="media received d-flex">
+<div class="avatar flex-shrink-0">
+<img src="assets/img/patients/patient-9.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+<div class="media-body flex-grow-1">
+<div class="msg-box">
+<div>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+<ul class="chat-msg-info">
+<li>
+<div class="chat-time">
+<span>10:17 AM</span>
+</div>
+</li>
+<li><a href="#">Edit</a></li>
+ </ul>
+</div>
+</div>
+</div>
+</li>
+<li class="media sent d-flex">
+<div class="media-body flex-grow-1">
+<div class="msg-box">
+<div>
+<p>Lorem ipsum dollar sit</p>
+<div class="chat-msg-actions dropdown">
+<a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<i class="fe fe-elipsis-v"></i>
+</a>
+<div class="dropdown-menu dropdown-menu-end">
+<a class="dropdown-item" href="#">Delete</a>
+</div>
+</div>
+<ul class="chat-msg-info">
+<li>
+<div class="chat-time">
+<span>10:19 AM</span>
+</div>
+</li>
+<li><a href="#">Edit</a></li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li class="media received d-flex">
+<div class="avatar flex-shrink-0">
+<img src="assets/img/patients/patient-9.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+<div class="media-body flex-grow-1">
+<div class="msg-box">
+<div>
+<div class="msg-typing">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="chat-footer">
+<div class="input-group">
+<div class="btn-file btn">
+<i class="fa fa-paperclip"></i>
+<input type="file">
+</div>
+<input type="text" class="input-msg-send form-control rounded-pill" placeholder="Type something">
+<button type="button" class="btn msg-send-btn rounded-pill ms-2"><i class="fab fa-telegram-plane"></i></button>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="modal fade call-modal" id="voice_call">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-body">
+
+<div class="call-box incoming-box">
+<div class="call-wrapper">
+<div class="call-inner">
+<div class="call-user">
+<img alt="User Image" src="assets/img/patients/patient-9.jpg" class="call-avatar">
+<h4>George Anderson</h4>
+<span>Connecting...</span>
+</div>
+<div class="call-items">
+<a href="javascript:void(0);" class="btn call-item call-end" data-bs-dismiss="modal" aria-label="Close"><i class="material-icons">call_end</i></a>
+<a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/voice-call" class="btn call-item call-start"><i class="material-icons">call</i></a>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+<div class="modal fade call-modal" id="video_call">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-body">
+
+<div class="call-box incoming-box">
+<div class="call-wrapper">
+<div class="call-inner">
+<div class="call-user">
+<img class="call-avatar" src="assets/img/patients/patient-9.jpg" alt="User Image">
+<h4>George Anderson</h4>
+<span>Calling ...</span>
+</div>
+<div class="call-items">
+<a href="javascript:void(0);" class="btn call-item call-end" data-bs-dismiss="modal" aria-label="Close"><i class="material-icons">call_end</i></a>
+<a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/video-call" class="btn call-item call-start"><i class="material-icons">videocam</i></a>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<script src="assets/libs/jquery/jquery.min-18.js"></script>
+
+<script src="assets/libs/bootstrap/js/bootstrap.bundle.min-18.js"></script>
+<script src="assets/libs/feather/feather.min-18.js"></script>
+<script src="assets/js/respond.min-18.js"></script>
+
+<script src="assets/js/moment.min-18.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min-18.js"></script>
+<script src="assets/libs/daterangepicker/daterangepicker-18.js"></script>
+
+<script src="assets/js/jquery-ui.min-18.js"></script>
+<script src="assets/libs/fullcalendar/fullcalendar.min-18.js"></script>
+<script src="assets/js/pages/fullcalendar.init-18.js"></script>
+
+<script src="assets/libs/theia-sticky-sidebar/dist/ResizeSensor-18.js"></script>
+<script src="assets/libs/theia-sticky-sidebar/dist/theia-sticky-sidebar-18.js"></script>
+
+<script src="assets/libs/select2/dist/js/select2.min-18.js"></script>
+
+<script src="assets/libs/fancybox/jquery.fancybox.min-18.js"></script>
+
+<script src="assets/libs/dropzone/dropzone-min-18.js"></script>
+<script src="assets/js/pages/dropzone.init-18.js"></script>
+
+<script src="assets/libs/bootstrap-tagsinput/bootstrap-tagsinput-18.js"></script>
+
+<script src="assets/js/pages/profile-settings.init-18.js"></script>
+
+<script src="assets/js/circle-progress.min-18.js"></script>
+
+<script src="assets/js/slick-18.js"></script>
+
+<script src="assets/js/app-18.js"></script>
+</div></body>
+</html>
+<script>
+$(document).ready(function(){
+  // alert(1);
+ /*$('.submenu li a').click(function(){
+   $(.submenu li a).removeClass("active");
+   $(this).addClass("active");
+   $('.has-submenu a').removeClass("active");
+   $('.has-submenu a').addClass("active");
+   
+   //$(this).toggleClass("active");
+ });*/
+});
+</script>

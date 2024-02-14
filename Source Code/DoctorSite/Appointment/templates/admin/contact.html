@@ -1,0 +1,105 @@
+﻿{% extends "admin/layout.html" %}
+{% block img1 %}{{subadmin.admin_image}}{% endblock %}
+{% block img %}<img src="/media/{{subadmin.admin_image}}" alt="User Image"
+                                    class="avatar-img rounded-circle">{% endblock %}
+{% block user %}{{c_user.first_name}} {{c_user.last_name}}{% endblock %}
+{% block body %}
+{% load static %}
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title">Contacts</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a
+                                        href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index_admin">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active">Contacts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                              {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+<strong>{{message}}</strong> <a href="#" class="alert-link"></a> 
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+</button>
+</div>{% endfor %}
+{% endif %}
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="datatable table table-hover table-center mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th> Name</th>
+                                                <th>Email</th>
+                                                <th>Message</th>
+                                                <th>Date</th>
+                                                <th class="text-end">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           {% if contact %}
+                                           {% for cont in contact %}
+                                            <tr>
+                                                <td>
+                                                    
+                                                          {{cont.name}} 
+                                                    
+                                                </td>
+                                                <td>
+                                                    {{cont.email}}
+                                                </td>
+                                               
+                                                <td>
+                                                    {{cont.message}}
+                                                </td>
+                                                <td>{{ cont.date|time:"h:i A" }}</td>
+                                                <td class="text-end">
+                                                    <div class="actions">
+                                                        <a class="btn btn-sm bg-danger-light"
+                                                            href="{% url 'delete_contact' cont.id %}">
+                                                            <i class="fe fe-trash"></i> Delete
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                         {% endfor %}
+                                         {% endif %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="modal fade" id="delete_modal" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="form-content p-2">
+                        <h4 class="modal-title">Delete</h4>
+                        <p class="mb-4">Are you sure want to delete?</p>
+                        <button type="button" class="btn btn-primary">Save </button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

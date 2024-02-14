@@ -1,0 +1,134 @@
+﻿{% extends "admin/layout.html" %}
+{% block img1 %}{{subadmin.admin_image}}{% endblock %}
+{% block img %}<img src="/media/{{subadmin.admin_image}}" alt="User Image"
+                                    class="avatar-img rounded-circle">{% endblock %}
+{% block user %}{{c_user.first_name}} {{c_user.last_name}}{% endblock %}
+{% block body %}
+{% load static %}
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title">Appointments</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a
+                                        href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index_admin">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active">Appointments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="datatable table table-hover table-center mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Doctor Name</th>
+                                                <th>Speciality</th>
+                                                <th>Patient Name</th>
+                                                <th>Apointment Time</th>
+                                                <th>Status</th>
+                                                <th class="text-end">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           
+                                            {% if appointments %}
+                                            {% for appointment in appointments %}
+                                            <tr>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="/media/{{appointment.doctor.doc_image"
+                                                            class="avatar avatar-sm me-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="/media/{{appointment.doctor.doc_image}}"
+                                                                alt="User Image"></a>
+                                                        <a
+                                                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/admin/profile">{{appointment.doctor.user.get_full_name}}</a>
+                                                    </h2>
+                                                </td>
+                                                <td>{{appointment.doctor.specialization.name}}</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="/media/{{appointment.patient.patient_image}}"
+                                                            class="avatar avatar-sm me-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="/media/{{appointment.patient.patient_image}}"
+                                                                alt="User Image"></a>
+                                                        <a
+                                                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/admin/profile">{{appointment.patient.user.get_full_name}} </a>
+                                                    </h2>
+                                                </td>
+                                                <td>{{appointment.appt_date}}<span class="text-primary d-block">{{appointment.appt_time}}</span></td>
+                                                <td>
+                                         <form method="POST" data-appoint-id="{{ appointment.id }}" class="status-form">
+    {% csrf_token %}
+    <div class="status-toggle">
+        <input type="checkbox" id="status_{{ appointment.id }}" class="check" {% if appointment.status == 'Accepted' %}checked{% endif %}>
+        <label for="status_{{ appointment.id }}" class="checktoggle">Status</label>
+    </div>
+    <!-- Remove the update button -->
+</form>
+
+                                                </td>
+                                                <td class="text-end">
+                                                    {{appointment.doctor.price}}
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  <script>
+$(document).ready(function () {
+    function updateAppointmentStatus(appointid, status) {
+        // AJAX request to update the appointment status
+        $.ajax({
+             url: '{% url "admin_appointment_status" %}',
+            type: 'POST',
+            data: {
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                'appoint_id': appointid,
+                'status': status
+            },
+            success: function (data) {
+                // Success message or further action if needed
+                console.log('Status updated successfully');
+                console.log(data);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error:', errorThrown);
+            }
+        });
+    }
+
+    $(document).on('change', '.status-form .check', function () {
+        var appointid = $(this).closest('.status-form').data('appoint-id');
+        var status = $(this).prop('checked') ? 'Accepted' : 'Rejected';
+        updateAppointmentStatus(appointid, status);
+    });
+});
+
+</script>
+
+{% endblock %}

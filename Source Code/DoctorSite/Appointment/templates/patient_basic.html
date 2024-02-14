@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <title>Doccure-Cardiology</title>
+  {% load static %}
+  <link type="image/x-icon" href="{% static 'assets/img/favicon.png' %}" rel="icon">
+
+  <link rel="stylesheet" href="{% static 'assets/libs/bootstrap/css/bootstrap.min.css '%}">
+
+  <link rel="stylesheet" href="{% static 'assets/libs/fontawesome/css/fontawesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/libs/fontawesome/css/all.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/libs/feather/feather.css' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/libs/fancybox/jquery.fancybox.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/libs/daterangepicker/daterangepicker.css' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/libs/select2/dist/css/select2.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/libs/dropzone/dropzone.css' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap-datetimepicker.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/libs/fullcalendar/fullcalendar.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/css/app.css' %}">
+</head>
+<div class="main-wrapper">
+
+  <header class="header">
+    <nav class="navbar navbar-expand-lg header-nav">
+      <div class="navbar-header">
+        <a id="mobile_btn" href="javascript:void(0);">
+          <span class="bar-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </a>
+        <a href="{% url 'home' %}" class="navbar-brand logo">
+          <img src="{% static 'assets/img/logo.png' %}" class="img-fluid" alt="Logo">
+        </a>
+      </div>
+      <div class="main-menu-wrapper">
+        <div class="menu-header">
+          <a href="{% url 'home' %}" class="menu-logo">
+            <img src="{% static 'assets/img/logo.png' %}" class="img-fluid" alt="Logo">
+          </a>
+          <a id="menu_close" class="menu-close" href="javascript:void(0);">
+            <i class="fas fa-times"></i>
+          </a>
+        </div>
+        <ul class="main-nav">
+          <li class="active">
+            <a href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="has-submenu ">
+            <a href="">Doctors <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+              <li class=""><a
+                  href="{% url 'doc_panel' %}">Doctor
+                  Dashboard</a></li>
+              
+             <li class=""><a
+                  href="{% url 'doctor_register' %}">Doctor
+                  Register</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu ">
+            <a href="{% url 'patient_panel' %}">Patients <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+             
+              <li class=""><a href="{% url 'search' %}">Search
+                  Doctor</a></li>
+              
+              <li class=""><a
+                  href="{% url 'patient_panel' %}">Patient
+                  Dashboard</a></li>
+              
+            </ul>
+          </li>
+          <li class="has-submenu ">
+            <a href="">Pages <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+             
+              <li class=""><a href="{% url 'search' %}">Search
+                  Doctors</a></li>
+              
+            
+              
+              <li class=""><a
+                  href="{% url 'about' %}">About-Us</a></li>
+              <li class=""><a
+                  href="{% url 'contact' %}">Contact-Us</a>
+              </li>
+              <li class=""><a
+                  href="{% url 'patient_login' %}">Login</a></li>
+              <li class=""><a
+                  href="{% url 'doctor_register' %}">Register</a></li>
+              
+            </ul>
+          </li>
+         
+          <li><a href="{% url 'admin_panel' %}"
+              target="_blank">Admin</a></li>
+        </ul>
+      </div>
+      <ul class="nav header-navbar-rht">
+        <li class="nav-item contact-item">
+          <div class="header-contact-img">
+            <i class="far fa-hospital"></i>
+          </div>
+          <div class="header-contact-detail">
+            <p class="contact-header">Contact</p>
+            <p class="contact-info-header"> +1 315 369 5943</p>
+          </div>
+        <li class="nav-item">
+          <a class="nav-link header-login"
+            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/login">login / Signup </a>
+        </li>
+
+      </ul>
+    </nav>
+  </header>
+  <div class="breadcrumb-bar">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-md-12 col-12">
+          <nav aria-label="breadcrumb" class="page-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a
+                  href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            </ol>
+          </nav>
+          <h2 class="breadcrumb-title">Dashboard</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+          <div class="profile-sidebar">
+            <div class="widget-profile pro-widget-content">
+              <div class="profile-info-widget">
+                <a href="#" class="booking-doc-img">
+                  {% block userimg %} {% endblock %}
+                </a>
+                <div class="profile-det-info">
+                  <h3>{% block user %}{% endblock %}</h3>
+                  <div class="patient-details">
+                    <h5><i class="fas fa-birthday-cake"></i> {% block userdate %}{% endblock %}year</h5>
+                    <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> {% block useraddress %}{% endblock %}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-widget">
+              <nav class="dashboard-menu">
+                <ul>
+                  <li class="active">
+                    <a href="{% url 'patient_panel'%}">
+                      <i class="fas fa-columns"></i>
+                      <span>Dashboard</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{% url 'patient_profile'%}">
+                      <i class="fas fa-user-cog"></i>
+                      <span>Profile Settings</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{% url 'change_password'%}">
+                      <i class="fas fa-lock"></i>
+                      <span>Change Password</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{% url 'patient_logout'%}">
+                      <i class="fas fa-sign-out-alt"></i>
+                      <span>Logout</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+  {% block containt %}
+{% endblock %}
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+
+          <div class="footer-widget footer-about">
+            <div class="footer-logo">
+              <img src="{% static 'assets/img/footer-logo.png' %}" alt="logo">
+            </div>
+            <div class="footer-about-content">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. </p>
+              <div class="social-icon">
+                <ul>
+                  <li>
+                    <a href="#" target="_blank"><i class="fa fa-facebook"></i> </a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-3 col-md-6">
+
+          <div class="footer-widget footer-menu">
+            <h2 class="footer-title">For Patients</h2>
+            <ul>
+              <li><a href="{% url 'search' %}">Search for
+                  Doctors</a></li>
+              <li><a href="{% url 'patient_login' %}">Login</a></li>
+              <li><a href="{% url 'patient_register' %}">Register</a>
+              </li>
+              
+              <li><a
+                  href="{% url 'patient_panel' %}">Patient
+                  Dashboard</a></li>
+            </ul>
+          </div>
+
+        </div>
+        <div class="col-lg-3 col-md-6">
+
+          <div class="footer-widget footer-menu">
+            <h2 class="footer-title">For Doctors</h2>
+            <ul>
+              
+               <li><a href="{% url 'doctor_login' %}">Login</a></li>
+              <li><a
+                  href="{% url 'doctor_register' %}">Register</a>
+              </li>
+              <li><a href="{% url 'doc_panel' %}">Doctor
+                  Dashboard</a></li>
+            </ul>
+          </div>
+
+        </div>
+        <div class="col-lg-3 col-md-6">
+
+          <div class="footer-widget footer-contact">
+            <h2 class="footer-title">Contact Us</h2>
+            <div class="footer-contact-info">
+              <div class="footer-address">
+                <span><i class="fas fa-map-marker-alt"></i></span>
+                <p> 3556 Beech Street, San Francisco,<br> California, CA 94108 </p>
+              </div>
+              <p>
+                <i class="fas fa-mobile-alt"></i>
+                +1 315 369 5943
+              </p>
+              <p class="mb-0">
+                <i class="fas fa-envelope"></i>
+                <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                  data-cfemail="e98d868a8a9c9b8ca98c91888499858cc78a8684">mmbilal4720@gmail.com</a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footer-bottom">
+    <div class="container-fluid">
+
+      <div class="copyright">
+        <div class="row">
+          <div class="col-md-6 col-lg-6">
+            <div class="copyright-text">
+              <p class="mb-0">&copy; 2022 Doccure. All rights reserved.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6">
+
+            <div class="copyright-menu">
+              <ul class="policy-menu">
+                <li><a href="{% url 'tc' %}">Terms
+                    and Conditions</a></li>
+                
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>  {% load static %}
+  </footer>
+  <script src="{% static 'assets/libs/jquery/jquery.min.js' %}"></script>
+  
+  <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/libs/feather/feather.min.js' %}"></script>
+  <script src="{% static 'assets/js/respond.min.js' %}"></script>
+  
+  <script src="{% static 'assets/js/moment.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap-datetimepicker.min.js' %}"></script>
+  <script src="{% static 'assets/libs/daterangepicker/daterangepicker.js' %}"></script>
+  
+  <script src="{% static 'assets/js/jquery-ui.min.js' %}"></script>
+  <script src="{% static 'assets/libs/fullcalendar/fullcalendar.min.js' %}"></script>
+  <script src="{% static 'assets/js/pages/fullcalendar.init.js' %}"></script>
+  
+  <script src="{% static 'assets/libs/theia-sticky-sidebar/dist/ResizeSensor.js' %}"></script>
+  <script src="{% static 'assets/libs/theia-sticky-sidebar/dist/theia-sticky-sidebar.js' %}"></script>
+  
+  <script src="{% static 'assets/libs/select2/dist/js/select2.min.js' %}"></script>
+  
+  <script src="{% static 'assets/libs/fancybox/jquery.fancybox.min.js' %}"></script>
+  
+  <script src="{% static 'assets/libs/dropzone/dropzone-min.js' %}"></script>
+  <script src="{% static 'assets/js/pages/dropzone.init.js' %}"></script>
+  
+  <script src="{% static 'assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.js' %}"></script>
+  
+  <script src="{% static 'assets/js/pages/profile-settings.init.js' %}"></script>
+  
+  <script src="{% static 'assets/js/circle-progress.min.js' %}"></script>
+  
+  <script src="{% static 'assets/js/slick.js' %}"></script>
+  
+  <script src="{% static 'assets/js/app.js' %}"></script>
+  
+  </html>
+  <script>
+    $(document).ready(function () {
+      // alert(1);
+      /*$('.submenu li a').click(function(){
+        $(.submenu li a).removeClass("active");
+        $(this).addClass("active");
+        $('.has-submenu a').removeClass("active");
+        $('.has-submenu a').addClass("active");
+        
+        //$(this).toggleClass("active");
+      });*/
+    });
+  </script>
+  <!-- Add this script at the bottom of your template, just before the closing </body> tag -->
+<script>
+  function checkForUpdates() {
+    // Make an AJAX request to the server to check for updates in the database
+    // For example, you can use the fetch API or jQuery.ajax() to make the request
+    fetch('/api/check_for_updates/')
+      .then(response => response.json())
+      .then(data => {
+        // If new data is found in the database, reload the page
+        if (data.has_updates) {
+          location.reload();
+        }
+      })
+      .catch(error => {
+        console.error('Error checking for updates:', error);
+      });
+  }
+
+  // Call the checkForUpdates() function initially and then repeat it every 1 minute (60000 milliseconds)
+  // You can adjust the interval time as needed
+  checkForUpdates();
+  setInterval(checkForUpdates, 60000);
+</script>

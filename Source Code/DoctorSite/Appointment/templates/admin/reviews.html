@@ -1,0 +1,126 @@
+﻿{% extends "admin/layout.html" %}
+{% block img1 %}{{subadmin.admin_image}}{% endblock %}
+{% block img %}<img src="/media/{{subadmin.admin_image}}" alt="User Image"
+                                    class="avatar-img rounded-circle">{% endblock %}
+{% block user %}{{c_user.first_name}} {{c_user.last_name}}{% endblock %}
+{% block body %}
+{% load static %}
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title">Reviews</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a
+                                        href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index_admin">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active">Reviews</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                              {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+<strong>{{message}}</strong> <a href="#" class="alert-link"></a> 
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+</button>
+</div>{% endfor %}
+{% endif %}
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="datatable table table-hover table-center mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Patient Name</th>
+                                                <th>Doctor Name</th>
+                                                <th>Ratings</th>
+                                                <th>Description</th>
+                                                <th>Date</th>
+                                                <th class="text-end">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           {% if reviews %}
+                                           {% for review in reviews %}
+                                            <tr>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="/media/{{review.patient.patient_image}}"
+                                                            class="avatar avatar-sm me-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="/media/{{review.patient.patient_image}}"
+                                                                alt="User Image"></a>
+                                                        <a
+                                                            href="">{{review.patient.user.get_full_name}} </a>
+                                                    </h2>
+                                                </td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="/media/{{review.doctor.doc_image}}"
+                                                            class="avatar avatar-sm me-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="/media/{{review.doctor.doc_image}}"
+                                                                alt="User Image"></a>
+                                                        <a
+                                                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/admin/profile">{{review.doctor.user.get_full_name}}</a>
+                                                    </h2>
+                                                </td>
+                                                <td>
+                                                    <i class="fe fe-star text-warning"></i>
+                                                    <i class="fe fe-star text-warning"></i>
+                                                    <i class="fe fe-star text-warning"></i>
+                                                    <i class="fe fe-star text-warning"></i>
+                                                    <i class="fe fe-star-o text-secondary"></i>
+                                                </td>
+                                                <td>
+                                                    {{review.message}}
+                                                </td>
+                                                <td>{{ review.date }}</td>
+                                                <td class="text-end">
+                                                    <div class="actions">
+                                                        <a class="btn btn-sm bg-danger-light"
+                                                            href="{% url 'delete_review' review.id %}">
+                                                            <i class="fe fe-trash"></i> Delete
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                         {% endfor %}
+                                         {% endif %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="modal fade" id="delete_modal" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="form-content p-2">
+                        <h4 class="modal-title">Delete</h4>
+                        <p class="mb-4">Are you sure want to delete?</p>
+                        <button type="button" class="btn btn-primary">Save </button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

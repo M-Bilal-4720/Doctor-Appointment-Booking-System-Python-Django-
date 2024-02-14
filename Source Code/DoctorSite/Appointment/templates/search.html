@@ -1,0 +1,141 @@
+﻿{% extends "basic.html" %}
+{% block containt %}
+{% load static %}
+<div class="breadcrumb-bar">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-md-8 col-12">
+        <nav aria-label="breadcrumb" class="page-breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a
+                href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Search</li>
+          </ol>
+        </nav>
+          <h2 class="breadcrumb-title">{{total_doctors}} Total Matches Found </h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+<strong>{{message}}</strong> <a href="#" class="alert-link"></a> 
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+</button>
+</div>{% endfor %}
+{% endif %}
+      <div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
+
+        <div class="card search-filter">
+          
+          <div class="card-body">
+            <div class="filter-widget">
+              <h4>Select Specialist</h4>
+             
+             
+              {% if specialty %}
+              {% for specialist in specialty %}
+              <div>
+                <label class="custom_check">
+                  <a href="{% url 'search_doctor' specialist.id %}">
+                  <span class=""></span>{{specialist.name}} 
+                </label></a>
+              </div>
+              {% endfor %}
+              {% endif %}
+            
+             
+            </div>
+           
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-12 col-lg-8 col-xl-9">
+       {% for doctor in doctors %}
+        <div class="card">
+          <div class="card-body">
+            <div class="doctor-widget">
+              <div class="doc-info-left">
+                <div class="doctor-img">
+                  <a href="">
+                    <img src="/media/{{doctor.doc_image}}" class="img-fluid" alt="User Image">
+                  </a>
+                </div>
+                <div class="doc-info-cont">
+                  <h4 class="doc-name"><a
+                      href="{% url 'view_doctor' doctor.id %}">{{doctor.user.get_full_name}}</a></h4>
+                  {% for degree in doctor.user.degrees_set.all %}
+                    <p class="doc-speciality">{{degree.degree}}</p>
+                    {% endfor %}
+                   {% if doctor.specialization %}
+                    <p class="doc-department"><img src="/media/{{doctor.specialization.special_image}}"
+                            class="img-fluid" alt="Speciality">{{doctor.specialization.name}}</p>
+                    {% endif %}
+                  <div class="rating">
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="d-inline-block average-rating">(17)</span>
+                  </div>
+                  <div class="clinic-details">
+                    <p class="doc-location"><i class="fas fa-map-marker-alt"></i> {{doctor.city}}, {{doctor.country}}</p>
+                     <ul class="clinic-gallery">
+                     {% for clinics in doctor.user.clinic_set.all %}
+                      <li>
+                        <a href="assets/img/features/feature-01-1.jpg" data-fancybox="gallery">
+                          <img src="/media/{{clinics.clinic_image}}" alt="Feature">
+                        </a>
+                      </li>
+                    {% endfor %}
+                    </ul>
+                  </div>
+                  <div class="clinic-services">
+                    {% for service in doctor.user.services_set.all%}
+                                <span>{{service.service}}</span>
+                                {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <div class="doc-info-right">
+                <div class="clini-infos">
+                  <ul>
+                    <li><i class="far fa-comment"></i> 17 Feedback</li>
+                    <li><i class="fas fa-map-marker-alt"></i> {{doctor.city}}, {{doctor.country}}</li>
+                    <li><i class="far fa-money-bill-alt"></i> ${{doctor.price}} <i class="fas fa-info-circle"
+                        data-bs-toggle="tooltip" title="Lorem Ipsum"></i> </li>
+                  </ul>
+                </div>
+                <div class="clinic-booking">
+                  <a class="view-pro-btn"
+                    href="{% url 'view_doctor' doctor.id %}">View
+                    Profile</a>
+                  <a class="apt-btn"
+                    href="{% url 'booking' doctor.id %}">Book
+                    Appointment</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         {% endfor %}
+
+
+        <div class="load-more text-center">
+          <a class="btn btn-primary btn-sm" href="javascript:void(0);">Load More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,117 @@
+﻿{% extends "admin/layout.html" %}
+{% block img1 %}{{subadmin.admin_image}}{% endblock %}
+{% block img %}<img src="/media/{{subadmin.admin_image}}" alt="User Image"
+                                    class="avatar-img rounded-circle">{% endblock %}
+{% block user %}{{c_user.first_name}} {{c_user.last_name}}{% endblock %}
+{% block body %}
+{% load static %}
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title">List of Doctors</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a
+                                        href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index_admin">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="javascript:(0);">Users</a></li>
+                                <li class="breadcrumb-item active">Doctor</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="datatable table table-hover table-center mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Doctor Name</th>
+                                                <th>Speciality</th>
+                                                <th>Member Since</th>
+                                                <th>Fees</th>
+                                                <th>Account Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          {% for doctor in doctors %}
+                                            <tr>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/admin/profile"
+                                                            class="avatar avatar-sm me-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="/media/{{doctor.doc_image}}"
+                                                                alt="User Image"></a>
+                                                        <a
+                                                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/admin/profile">{{doctor.user.get_full_name}}</a>
+                                                    </h2>
+                                                </td>
+                                                <td>{{doctor.specialization.name}}</td>
+                                                <td>{{doctor.user.date_joined}}</td>
+                                                <td>${{doctor.price}}</td>
+                                                <td>
+               <form method="POST" data-doctor-id="{{ doctor.id }}" class="status-form">
+    {% csrf_token %}
+    <div class="status-toggle">
+        <input type="checkbox" id="status_{{ doctor.id }}" class="check" {% if doctor.status == 'active' %}checked{% endif %}>
+        <label for="status_{{ doctor.id }}" class="checktoggle">checkbox</label>
+    </div>
+    <!-- Remove the update button -->
+</form>
+
+                                                </td>
+                                            </tr>
+                                          {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<script>
+    $(document).ready(function () {
+        // Function to handle the checkbox change event
+        function updateDoctorStatus(doctorId, status) {
+            // AJAX request to update the doctor status
+            $.ajax({
+                url: '{% url "update_doctor_status" %}',
+                type: 'POST',
+                data: {
+                    'csrfmiddlewaretoken': '{{ csrf_token }}',
+                    'doctor_id': doctorId,
+                    'status': status
+                },
+                success: function (data) {
+                    // Success message or further action if needed
+                    console.log('Status updated successfully');
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log('Error:', errorThrown);
+                }
+            });
+        }
+
+        // Event delegation for checkbox change event
+        $(document).on('change', '.status-form .check', function () {
+            var doctorId = $(this).closest('.status-form').data('doctor-id');
+            var status = $(this).prop('checked') ? 'active' : 'inactive';
+            updateDoctorStatus(doctorId, status);
+        });
+    });
+</script>
+
+
+
+{% endblock %}

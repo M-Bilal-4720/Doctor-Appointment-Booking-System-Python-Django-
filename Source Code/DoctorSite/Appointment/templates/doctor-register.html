@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Doctor Register</title>
+    {% load static %}
+    <link type="image/x-icon" href="{% static 'assets/img/favicon.png' %}" rel="icon">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/bootstrap/css/bootstrap.min.css '%}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/fontawesome/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/libs/fontawesome/css/all.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/feather/feather.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/fancybox/jquery.fancybox.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/daterangepicker/daterangepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/select2/dist/css/select2.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/libs/dropzone/dropzone.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap-datetimepicker.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/libs/fullcalendar/fullcalendar.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/app.css' %}">
+</head>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+
+                <div class="account-content">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-md-7 col-lg-6 login-left">
+                            <img src="{% static 'assets/img/login-banner.png' %}" class="img-fluid" alt="Login Banner">
+                        </div>
+                        <div class="col-md-12 col-lg-6 login-right">
+                            <div class="login-header">
+                                {% if messages %}
+                           {% for message in messages %}
+                            <div class="alert alert-danger" >
+                                 {{message}}
+                            </div>
+                          {% endfor %}
+                            {% endif %}
+                                <h3>Doctor Register <a
+                                        href="{% url 'doctor_login' %}">Already have an account??</a></h3>
+                            </div>
+
+                            <form action="{% url 'doctor_register'%}" method="POST">{% csrf_token %}
+                                <div class="form-group form-focus">
+                                    <input type="email" name="username" required class="form-control floating">
+                                    {% if messages %}
+                           {% for message in messages %}
+                            <div class="text-danger" >
+                                 {{message}}
+                            </div>
+                          {% endfor %}
+                            {% endif %}
+                                    <label class="focus-label">UserName</label>
+                                </div>
+                                <div class="form-group form-focus">
+                                    <input type="text" name="first_name" required class="form-control floating">
+                                    <label class="focus-label">First Name</label>
+                                </div>
+                                <div class="form-group form-focus">
+                                    <input type="text" name="last_name" required class="form-control floating">
+                                    <label class="focus-label">Last Name</label>
+                                </div>
+                                <div class="form-group form-focus">
+                                    <input type="email" name="email" required class="form-control floating">
+                                    <label class="focus-label">Email</label>
+                                </div>
+                                <div class="form-group form-focus">
+                                    <input type="password" required name="password" class="form-control floating">
+                                    <label class="focus-label">Your Password</label>
+                                </div>
+                                <button class="btn btn-primary w-100 btn-lg login-btn" type="submit">Signup</button>
+                               
+                              
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script data-cfasync="false" src="{% static '../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script>
+<script src="{% static 'assets/libs/jquery/jquery.min.js' %}"></script>
+
+<script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/libs/feather/feather.min.js' %}"></script>
+<script src="{% static 'assets/js/respond.min.js' %}"></script>
+
+<script src="{% static 'assets/js/moment.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap-datetimepicker.min.js' %}"></script>
+<script src="{% static 'assets/libs/daterangepicker/daterangepicker.js' %}"></script>
+
+<script src="{% static 'assets/js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'assets/libs/fullcalendar/fullcalendar.min.js' %}"></script>
+<script src="{% static 'assets/js/pages/fullcalendar.init.js' %}"></script>
+
+<script src="{% static 'assets/libs/theia-sticky-sidebar/dist/ResizeSensor.js' %}"></script>
+<script src="{% static 'assets/libs/theia-sticky-sidebar/dist/theia-sticky-sidebar.js' %}"></script>
+
+<script src="{% static 'assets/libs/select2/dist/js/select2.min.js' %}"></script>
+
+<script src="{% static 'assets/libs/fancybox/jquery.fancybox.min.js' %}"></script>
+
+<script src="{% static 'assets/libs/dropzone/dropzone-min.js' %}"></script>
+<script src="{% static 'assets/js/pages/dropzone.init.js' %}"></script>
+
+<script src="{% static 'assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.js' %}"></script>
+
+<script src="{% static 'assets/js/pages/profile-settings.init.js' %}"></script>
+
+<script src="{% static 'assets/js/circle-progress.min.js' %}"></script>
+
+<script src="{% static 'assets/js/slick.js' %}"></script>
+
+<script src="{% static 'assets/js/app.js' %}"></script>
+
+</html>
+<script>
+  $(document).ready(function () {
+    // alert(1);
+    /*$('.submenu li a').click(function(){
+      $(.submenu li a).removeClass("active");
+      $(this).addClass("active");
+      $('.has-submenu a').removeClass("active");
+      $('.has-submenu a').addClass("active");
+      
+      //$(this).toggleClass("active");
+    });*/
+  });
+</script>

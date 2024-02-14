@@ -1,0 +1,86 @@
+{% extends "admin/layout.html" %}
+{% block img1 %}{{subadmin.admin_image}}{% endblock %}
+{% block img %}<img src="/media/{{subadmin.admin_image}}" alt="User Image"
+                                    class="avatar-img rounded-circle">{% endblock %}
+{% block user %}{{c_user.first_name}} {{c_user.last_name}}{% endblock %}
+{% block body %}
+{% load static %}
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title">Transactions</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a
+                                        href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index_admin">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active">Transactions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="datatable table table-hover table-center mb-0">
+                                        <thead>
+                                            <tr>
+                                               
+                                                <th>Patient ID</th>
+                                                <th>Patient Name</th>
+                                                <th>Total Amount</th>
+                                                <th class="text-center">Status</th>
+                                                <th class="text-end">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           {% if payments %}
+                                           {% for payment in payments %}
+                                            <tr>
+                                              
+                                                <td>#PT00{{payment.id}}</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="/media/{{payment.patient.patient_image}}"
+                                                            class="avatar avatar-sm me-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="/media/{{payment.patient.patient_image}}"
+                                                                alt="User Image"></a>
+                                                        <a
+                                                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/admin/profile">{{payment.patient.user.get_full_name}} </a>
+                                                    </h2>
+                                                </td>
+                                                <td>{{payment.amount}}</td>
+                                                <td class="text-center">
+                                                    <span
+                                                        class="badge rounded-pill rounded-pill bg-success inv-badge">{{payment.status}}</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <div class="actions">
+                                                        <a class="btn btn-sm bg-danger-light"
+                                                            href="{% url 'delete_transaction' payment.id %}">
+                                                            <i class="fe fe-trash"></i> Delete
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                           {% endfor %}
+                                           {% endif %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

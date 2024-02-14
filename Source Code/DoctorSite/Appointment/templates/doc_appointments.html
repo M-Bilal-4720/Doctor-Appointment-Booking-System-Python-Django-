@@ -1,0 +1,99 @@
+﻿
+{% extends "doc-basic.html" %}
+{% block userimg %}<img src="/media/{{doctor.doc_image}}" alt="User Image">{% endblock%}
+{% block user %}{{doct.first_name}} {{doct.last_name}}{% endblock %}
+{% block degree %}{{degree.degree}} , {{service.service}} & {{special.name}}{% endblock %}
+{% block containt %}
+{% load static %}
+
+        </div>
+        <div class="col-md-7 col-lg-8 col-xl-9">
+          <div class="appointments">
+{% if appointments_with_details %}
+                            {% for appointment_with_detail in appointments_with_details %}
+            <div class="appointment-list">
+              <div class="profile-info-widget">
+                <a href="" class="booking-doc-img">
+                  <img src="/media/{{ appointment_with_detail.patient.patient_image }}" alt="User Image">
+                </a>
+                <div class="profile-det-info">
+                  <h3><a href="{% url 'view_patient' appointment_with_detail.id %}">{{ appointment_with_detail.patient.user.get_full_name }}</a></h3>
+                  <div class="patient-details">
+                    <h5><i class="far fa-clock"></i> {{ appointment_with_detail.appt_date }}, {{ appointment_with_detail.appt_time }}</h5>
+                    <h5><i class="fas fa-map-marker-alt"></i> {{ appointment_with_detail.patient.state }}, {{ appointment_with_detail.patient.country }}</h5>
+                    <h5><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                        data-cfemail="86f4efe5eee7f4e2c6e3fee7ebf6eae3a8e5e9eb">{{ appointment_with_detail.patient.user.email }}</a></h5>
+                    <h5 class="mb-0"><i class="fas fa-phone"></i> +{{ appointment_with_detail.patient.phone }}</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="appointment-action">
+               <a href="{% url 'chat_doctor' appointment_with_detail.patient.user.id %}" class="btn btn-sm bg-info-warning" >
+    <i class="far fa-comments"></i> Message</a>
+               <a href="{% url 'view_patient' appointment_with_detail.id %}" class="btn btn-sm bg-info-light" >
+    <i class="far fa-eye"></i> View</a>
+<!-- Update "Confirm" button -->
+<a href="{% url 'update_appointment_status' appointment_with_detail.id 'Confirmed' %}" class="btn btn-sm bg-success-light">
+    <i class="fas fa-check"></i> Confirm
+</a>
+
+<!-- Update "Reject" button -->
+<a href="{% url 'update_appointment_status' appointment_with_detail.id 'Rejected' %}" class="btn btn-sm bg-danger-light">
+    <i class="fas fa-times"></i> Reject
+</a>
+              </div>
+            </div>
+{% endfor %}
+{% endif %}
+           
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal fade custom-modal" id="appt_details">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Appointment Details</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="info-details">
+          <li>
+            <div class="details-header">
+              <div class="row">
+                <div class="col-md-6">
+                  <span class="title">#APT0{{ appointment.id }}</span>
+                  <span class="text">{{ appointment.appt_date|date:"j F Y" }}{{ appointment.appt_time|time:"H:i A" }}</span>
+                </div>
+                <div class="col-md-6">
+                  <div class="text-end">
+                    <button type="button" class="btn bg-success-light btn-sm" id="topup_status">{{ appointment.status }}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="title">Status:</span>
+            <span class="text">{{ appointment.status }}</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

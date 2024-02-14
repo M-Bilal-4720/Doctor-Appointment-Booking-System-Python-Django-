@@ -1,0 +1,349 @@
+﻿{% extends "patient_basic.html" %}
+{% block userimg %}<img src="/media/{{prof.patient_image}}" alt="User Image">{% endblock%}
+{% block user %}{{user.first_name}} {{user.last_name}}{% endblock %}
+{% block userdate %} {{prof.date_birth}}, Age {{context.age}} {% endblock %}
+{% block useraddress %} {{prof.city}},{{prof.country}} {% endblock %}
+{% block containt %}
+{% load static %}
+
+
+
+        <div class="col-md-7 col-lg-8 col-xl-9">
+          <div class="card card-table">
+            <div class="card-body">
+
+              <div class="table-responsive">
+                <table class="table table-hover table-center mb-0">
+                  <thead>
+                    <tr>
+                      <th>Invoice No</th>
+                      <th>Patient</th>
+                      <th>Amount</th>
+                      <th>Paid On</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <a
+                          href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view">#INV-0010</a>
+                      </td>
+                      <td>
+                        <h2 class="table-avatar">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile"
+                            class="avatar avatar-sm me-2">
+                            <img class="avatar-img rounded-circle" src="assets/img/patients/patient-4.jpg"
+                              alt="User Image">
+                          </a>
+                          <a
+                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile">George
+                            Anderson <span>#PT0016</span></a>
+                        </h2>
+                      </td>
+                      <td>$450</td>
+                      <td>14 Nov 2019</td>
+                      <td class="text-end">
+                        <div class="table-action">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view"
+                            class="btn btn-sm bg-info-light">
+                            <i class="far fa-eye"></i> View
+                          </a>
+                          <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+                            <i class="fas fa-print"></i> Print
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a
+                          href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view">#INV-0009</a>
+                      </td>
+                      <td>
+                        <h2 class="table-avatar">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile"
+                            class="avatar avatar-sm me-2">
+                            <img class="avatar-img rounded-circle" src="assets/img/patients/patient1-4.jpg"
+                              alt="User Image">
+                          </a>
+                          <a
+                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile">Megan
+                            Bird <span>#PT0001</span></a>
+                        </h2>
+                      </td>
+                      <td>$200</td>
+                      <td>13 Nov 2019</td>
+                      <td class="text-end">
+                        <div class="table-action">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view"
+                            class="btn btn-sm bg-info-light">
+                            <i class="far fa-eye"></i> View
+                          </a>
+                          <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+                            <i class="fas fa-print"></i> Print
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a
+                          href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view">#INV-0008</a>
+                      </td>
+                      <td>
+                        <h2 class="table-avatar">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile"
+                            class="avatar avatar-sm me-2">
+                            <img class="avatar-img rounded-circle" src="assets/img/patients/patient2-4.jpg"
+                              alt="User Image">
+                          </a>
+                          <a
+                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile">Alvin
+                            Boykin <span>#PT0002</span></a>
+                        </h2>
+                      </td>
+                      <td>$100</td>
+                      <td>12 Nov 2019</td>
+                      <td class="text-end">
+                        <div class="table-action">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view"
+                            class="btn btn-sm bg-info-light">
+                            <i class="far fa-eye"></i> View
+                          </a>
+                          <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+                            <i class="fas fa-print"></i> Print
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a
+                          href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view">#INV-0007</a>
+                      </td>
+                      <td>
+                        <h2 class="table-avatar">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile"
+                            class="avatar avatar-sm me-2">
+                            <img class="avatar-img rounded-circle" src="assets/img/patients/patient3-4.jpg"
+                              alt="User Image">
+                          </a>
+                          <a
+                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile">Nicholas
+                            Hicks <span>#PT0003</span></a>
+                        </h2>
+                      </td>
+                      <td>$350</td>
+                      <td>11 Nov 2019</td>
+                      <td class="text-end">
+                        <div class="table-action">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view"
+                            class="btn btn-sm bg-info-light">
+                            <i class="far fa-eye"></i> View
+                          </a>
+                          <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+                            <i class="fas fa-print"></i> Print
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a
+                          href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view">#INV-0006</a>
+                      </td>
+                      <td>
+                        <h2 class="table-avatar">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile"
+                            class="avatar avatar-sm me-2">
+                            <img class="avatar-img rounded-circle" src="assets/img/patients/patient4-4.jpg"
+                              alt="User Image">
+                          </a>
+                          <a
+                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile">Sherri
+                            McCarthy <span>#PT0004</span></a>
+                        </h2>
+                      </td>
+                      <td>$275</td>
+                      <td>10 Nov 2019</td>
+                      <td class="text-end">
+                        <div class="table-action">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view"
+                            class="btn btn-sm bg-info-light">
+                            <i class="far fa-eye"></i> View
+                          </a>
+                          <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+                            <i class="fas fa-print"></i> Print
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a
+                          href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view">#INV-0005</a>
+                      </td>
+                      <td>
+                        <h2 class="table-avatar">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile"
+                            class="avatar avatar-sm me-2">
+                            <img class="avatar-img rounded-circle" src="assets/img/patients/patient5-4.jpg"
+                              alt="User Image">
+                          </a>
+                          <a
+                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile">Roger
+                            Loyd <span>#PT0005</span></a>
+                        </h2>
+                      </td>
+                      <td>$600</td>
+                      <td>9 Nov 2019</td>
+                      <td class="text-end">
+                        <div class="table-action">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view"
+                            class="btn btn-sm bg-info-light">
+                            <i class="far fa-eye"></i> View
+                          </a>
+                          <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+                            <i class="fas fa-print"></i> Print
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a
+                          href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view">#INV-0004</a>
+                      </td>
+                      <td>
+                        <h2 class="table-avatar">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile"
+                            class="avatar avatar-sm me-2">
+                            <img class="avatar-img rounded-circle" src="assets/img/patients/patient6-4.jpg"
+                              alt="User Image">
+                          </a>
+                          <a
+                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile">Francis
+                            Giordano <span>#PT0006</span></a>
+                        </h2>
+                      </td>
+                      <td>$50</td>
+                      <td>8 Nov 2019</td>
+                      <td class="text-end">
+                        <div class="table-action">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view"
+                            class="btn btn-sm bg-info-light">
+                            <i class="far fa-eye"></i> View
+                          </a>
+                          <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+                            <i class="fas fa-print"></i> Print
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a
+                          href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view">#INV-0003</a>
+                      </td>
+                      <td>
+                        <h2 class="table-avatar">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile"
+                            class="avatar avatar-sm me-2">
+                            <img class="avatar-img rounded-circle" src="assets/img/patients/patient7-3.jpg"
+                              alt="User Image">
+                          </a>
+                          <a
+                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile">Kate
+                            Mason <span>#PT0007</span></a>
+                        </h2>
+                      </td>
+                      <td>$400</td>
+                      <td>7 Nov 2019</td>
+                      <td class="text-end">
+                        <div class="table-action">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view"
+                            class="btn btn-sm bg-info-light">
+                            <i class="far fa-eye"></i> View
+                          </a>
+                          <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+                            <i class="fas fa-print"></i> Print
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a
+                          href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view">#INV-0002</a>
+                      </td>
+                      <td>
+                        <h2 class="table-avatar">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile"
+                            class="avatar avatar-sm me-2">
+                            <img class="avatar-img rounded-circle" src="assets/img/patients/patient8-3.jpg"
+                              alt="User Image">
+                          </a>
+                          <a
+                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile">Glenn
+                            Johnson <span>#PT0008</span></a>
+                        </h2>
+                      </td>
+                      <td>$550</td>
+                      <td>6 Nov 2019</td>
+                      <td class="text-end">
+                        <div class="table-action">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view"
+                            class="btn btn-sm bg-info-light">
+                            <i class="far fa-eye"></i> View
+                          </a>
+                          <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+                            <i class="fas fa-print"></i> Print
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a
+                          href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view">#INV-0001</a>
+                      </td>
+                      <td>
+                        <h2 class="table-avatar">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile"
+                            class="avatar avatar-sm me-2">
+                            <img class="avatar-img rounded-circle" src="assets/img/patients/patient9-3.jpg"
+                              alt="User Image">
+                          </a>
+                          <a
+                            href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/patient-profile">Monty
+                            Smith <span>#PT0009</span></a>
+                        </h2>
+                      </td>
+                      <td>$100</td>
+                      <td>5 Nov 2019</td>
+                      <td class="text-end">
+                        <div class="table-action">
+                          <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/invoice-view"
+                            class="btn btn-sm bg-info-light">
+                            <i class="far fa-eye"></i> View
+                          </a>
+                          <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+                            <i class="fas fa-print"></i> Print
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

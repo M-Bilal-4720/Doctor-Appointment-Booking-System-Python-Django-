@@ -1,0 +1,51 @@
+﻿{% extends "doc-basic.html" %}
+{% block userimg %}<img src="/media/{{doctor.doc_image}}" alt="User Image">{% endblock%}
+{% block user %}{{doct.first_name}} {{doct.last_name}}{% endblock %}
+{% block degree %}{{degree.degree}} , {{service.service}} & {{special.name}}{% endblock %}
+{% block containt %}
+{% load static %}
+        </div>
+        <div class="col-md-7 col-lg-8 col-xl-9">
+          <div class="doc-review review-listing">
+
+            <ul class="comments-list">
+{% if reviews %}
+{% for review in reviews %}
+              <li>
+                <div class="comment">
+                  <img class="avatar rounded-circle" alt="User Image" src="/media/{{review.patient.patient_image}}">
+                  <div class="comment-body">
+                    <div class="meta-data">
+                      <span class="comment-author">{{review.patient.user.get_full_name}}</span>
+                      <span class="comment-date">Reviewed {{ review.date|timesince }} ago</span>
+                      <div class="review-count rating">
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                    </div>
+                    <p class="recommended"><i class="far fa-thumbs-up"></i> {{review.title}}</p>
+                    <p class="comment-content">
+                      {{review.message}}
+                    </p>
+                  </div>
+                </div>
+
+              </li>
+
+{% endfor %}
+{% endif %}
+
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock%}

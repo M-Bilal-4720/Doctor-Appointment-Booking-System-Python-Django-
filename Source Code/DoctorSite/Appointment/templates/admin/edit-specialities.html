@@ -1,0 +1,117 @@
+﻿{% extends "admin/layout.html" %}
+{% block img1 %}{{subadmin.admin_image}}{% endblock %}
+{% block img %}<img src="/media/{{subadmin.admin_image}}" alt="User Image"
+                                    class="avatar-img rounded-circle">{% endblock %}
+{% block user %}{{c_user.first_name}} {{c_user.last_name}}{% endblock %}
+{% block body %}
+{% load static %}
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-7 col-auto">
+                            <h3 class="page-title">Specialities</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a
+                                        href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/index_admin">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active">Specialities</li>
+                            </ul>
+                        </div>
+                        <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+                            <div class="row form-row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Specialities</label>
+                                        <input type="text" name="name" value="{{specialty.name}}" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <input type="file" name="special_image" value="{{specialty.special_image}}" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="modal fade" id="Add_Specialities_details" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Specialities</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{% url 'add_specialities' %}" enctype="multipart/form-data">{% csrf_token %}
+                        <div class="row form-row">
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Specialities</label>
+                                    <input type="text" name="name" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    <input type="file" name="special_image" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="update_specialization" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Specialities</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+    {% csrf_token %}
+    <div class="row form-row">
+        <div class="col-12 col-sm-6">
+            <div class="form-group">
+                <label>Specialties</label>
+                <input type="text" class="form-control" name="name" value="{{ specialty.name }}">
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <div class="form-group">
+                <label>Image</label>
+                <input type="file" class="form-control">
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+</form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

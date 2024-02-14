@@ -1,0 +1,220 @@
+﻿{% extends "doc-basic.html" %}
+{% block userimg %}<img src="/media/{{doctor.doc_image}}" alt="User Image">{% endblock%}
+{% block user %}{{doct.first_name}} {{doct.last_name}}{% endblock %}
+{% block degree %}{{degree.degree}} , {{service.service}} & {{special.name}}{% endblock %}
+{% block containt %}
+{% load static %}
+
+        </div>
+        
+        <div class="col-md-7 col-lg-8 col-xl-9">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card dash-card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12 col-lg-4">
+                      <div class="dash-widget dct-border-rht">
+                        <div class="circle-bar circle-bar1">
+                          <div class="circle-graph1" data-percent="{{pr_total}}">
+                            <img src="{% static 'assets/img/icon-01.png' %}" class="img-fluid" alt="patient">
+                          </div>
+                        </div>
+                        <div class="dash-widget-info">
+                          <h6>Total Patient</h6>
+                          <h3>{{total}}</h3>
+                          <p class="text-muted">Till Today</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-lg-4">
+                      <div class="dash-widget dct-border-rht">
+                        <div class="circle-bar circle-bar2">
+                          <div class="circle-graph2" data-percent="{{appointments_today}}">
+                            <img src="{% static 'assets/img/icon-02.png' %}" class="img-fluid" alt="Patient">
+                          </div>
+                        </div>
+                        <div class="dash-widget-info">
+                          <h6>Today Appointments</h6>
+                          <h3>{{appointments_today}}</h3>
+                          <p class="text-muted">{{current_date}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-lg-4">
+                      <div class="dash-widget">
+                        <div class="circle-bar circle-bar3">
+                          <div class="circle-graph3" data-percent="{{appointment_count}}%">
+                            <img src="{% static 'assets/img/icon-03.png' %}" class="img-fluid" alt="Patient">
+                          </div>
+                        </div>
+                        <div class="dash-widget-info">
+                          <h6>Appoinments</h6>
+                          <h3>{{appointment_count}}</h3>
+                          <p class="text-muted">{{current_date}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="mb-4">Patient Appoinment</h4>
+              <div class="appointment-tab">
+
+                <ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#upcoming-appointments" data-bs-toggle="tab">Total</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#today-appointments" data-bs-toggle="tab">Today</a>
+                  </li>
+                </ul>
+
+                <div class="tab-content">
+
+                  <div class="tab-pane show active" id="upcoming-appointments">
+                    <div class="card card-table mb-0">
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-center mb-0">
+                            <thead>
+                              <tr>
+                                <th>Patient Name</th>
+                                <th>Appt Date</th>
+                                
+                                <th>Type</th>
+                             
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            {% if appointments_with_details %}
+                            {% for appointment_with_detail in appointments_with_details %}
+                              <tr>
+                                <td>
+                                  <h2 class="table-avatar">
+                                    <a href="/media/{{appointment_with_detail.patient.patient_image}}"
+                                      class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle"
+                                        src="/media/{{appointment_with_detail.patient.patient_image}}" alt="User Image"></a>
+                                    <a
+                                      href="{% url 'view_patient' appointment_with_detail.id %}">{{appointment_with_detail.patient.user.get_full_name}} <span>#PT00{{appointment_with_detail.id}}</span></a>
+                                  </h2>
+                                </td>
+                                <td>{{appointment_with_detail.appt_date}} <span class="d-block text-info">{{appointment_with_detail.appt_time}}</span></td>
+                                <td>{{appointment_with_detail.status}}</td>
+                             
+                                <td class="text-end">
+                                  <div class="table-action">
+                                    <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
+                                      <i class="far fa-eye"></i> View
+                                    </a>
+                
+                                  </div>
+                                </td>
+                                  <td><div class="appointment-action">
+    {% if appointment_detail.status == 'Accepted' %}
+        <a href="{% url 'update_appointment_status' appointment_detail.id 'Accepted' %}" class="btn btn-sm bg-primary-light">
+            <i class="fas fa-check"></i> Accept
+        </a>
+    {% elif appointment_detail.status == 'Confirmed' %}
+        <!-- Update "Confirm" button -->
+        <a href="{% url 'update_appointment_status' appointment_detail.id 'Confirmed' %}" class="btn btn-sm bg-success-light">
+            <i class="fas fa-check"></i> Confirm
+        </a>
+    {% elif appointment_detail.status == 'Rejected' %}
+        <!-- Update "Reject" button -->
+        <a href="{% url 'update_appointment_status' appointment_detail.id 'Rejected' %}" class="btn btn-sm bg-danger-light">
+            <i class="fas fa-times"></i> Reject
+        </a>
+    {% endif %}
+</div></td>
+                              </tr>
+                            {% endfor %}
+                            {% endif %}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="tab-pane" id="today-appointments">
+                    <div class="card card-table mb-0">
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-center mb-0">
+                            <thead>
+                              <tr>
+                                <th>Patient Name</th>
+                                <th>Appt Date</th>
+                                <th>Type</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% if appointments_todays %}
+                            {% for appointment_detail in appointments_todays %}
+                              <tr>
+                                <td>
+                                  <h2 class="table-avatar">
+                                    <a href="/media/{{appointment_detail.patient.patient_image}}"
+                                      class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle"
+                                        src="/media/{{appointment_detail.patient.patient_image}}" alt="User Image"></a>
+                                    <a
+                                      href="{% url 'view_patient' appointment_with_detail.id %}">{{appointment_detail.patient.user.get_full_name}} <span>#PT00{{appointment_detail.id}}</span></a>
+                                  </h2>
+                                </td>
+                                <td>{{appointment_detail.appt_date}} <span class="d-block text-info">{{appointment_detail.appt_time}}</span></td>
+                               <td>{{appointment_detail.status}}</td>
+
+                                <td class="text-end">
+                                  <div class="table-action">
+                                    <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
+                                      <i class="far fa-eye"></i> View
+                                    </a>
+                       </div>
+                                </td>
+                                <td><div class="appointment-action">
+    {% if appointment_detail.status == 'Accepted' %}
+        <a href="{% url 'update_appointment_status' appointment_detail.id 'Accepted' %}" class="btn btn-sm bg-primary-light">
+            <i class="fas fa-check"></i> Accept
+        </a>
+    {% elif appointment_detail.status == 'Confirmed' %}
+        <!-- Update "Confirm" button -->
+        <a href="{% url 'update_appointment_status' appointment_detail.id 'Confirmed' %}" class="btn btn-sm bg-success-light">
+            <i class="fas fa-check"></i> Confirm
+        </a>
+    {% elif appointment_detail.status == 'Rejected' %}
+        <!-- Update "Reject" button -->
+        <a href="{% url 'update_appointment_status' appointment_detail.id 'Rejected' %}" class="btn btn-sm bg-danger-light">
+            <i class="fas fa-times"></i> Reject
+        </a>
+    {% endif %}
+</div></td>
+                              </tr>
+                             
+                        {% endfor %}  {% endif%}
+                            </tbody>
+                          
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,179 @@
+﻿{% extends "basic.html" %}
+{% block containt %}
+{% load static %}
+
+<div class="content">
+  <div class="container-fluid px-0">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="chat-window">
+
+          <div class="chat-cont-left">
+            <div class="chat-header">
+              <span>Chats</span>
+              <a href="javascript:void(0)" class="chat-compose">
+                <i class="material-icons"></i>
+              </a>
+            </div>
+           
+            <div class="chat-users-list">
+              <div class="chat-scroll">
+              	 {% for doctor in doctors %}
+        <a href="{% url 'chat' doctor.id %}" class="media d-flex {% if doctor.id == doctor_id %}active{% endif %}">
+            <div class="media-img-wrap flex-shrink-0">
+                <div class="avatar {% if doctor.is_online %}avatar-online{% else %}avatar-away{% endif %}">
+                    <img src="/media/{{ doctor.doctor.doc_image }}" alt="User Image" class="avatar-img rounded-circle">
+                </div>
+            </div>
+            <div class="media-body flex-grow-1">
+                <div>
+                    <div class="user-name">{{ doctor.first_name }} {{ doctor.last_name }}</div>
+                    <!-- Display last chat message -->
+                    {% if doctor.id == doctor_id %}
+                    <div class="user-last-chat">{{ chat.message }}</div>
+                    {% endif %}
+                </div>
+                <div>
+                    <!-- Display last chat time -->
+                    {% if doctor.id == doctor_id %}
+                    <div class="last-chat-time block">{{ chat.timestamp }}</div>
+                    {% endif %}
+                    <!-- Display unread message count or online status -->
+                    {% if doctor.id == doctor_id %}
+                    <div class="badge {% if doctor.is_online %}badge-success{% else %}badge-danger{% endif %} rounded-pill">15</div>
+                    {% endif %}
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+               
+              </div>
+            </div>
+          </div>
+
+
+          <div class="chat-cont-right">
+            <div class="chat-header">
+              <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
+                <i class="material-icons">chevron_left</i>
+              </a>
+              <div class="media d-flex">
+                <div class="media-img-wrap flex-shrink-0">
+                  <div class="avatar avatar-online">
+                    <img src="/media/{{ doctor.doctor.doc_image }}" alt="User Image"
+                      class="avatar-img rounded-circle">
+                  </div>
+                </div>
+                <div class="media-body flex-grow-1">
+                  <div class="user-name">{{doctor.get_full_name}}</div>
+                  <div class="user-status">online</div>
+                </div>
+              </div>
+             
+            </div>
+            <div class="chat-body">
+              <div class="chat-scroll">
+                <ul class="list-unstyled">
+                
+                   {% for chat in chats %}
+                <li class="media {% if chat.sender == request.user %}sent{% else %}received{% endif %} d-flex">
+                    <div class="avatar flex-shrink-0">
+                        <img src="/media/{% if chat.sender == request.user %}{{ request.user.patient.patient_image }}{% else %}{{ doctor.doctor.doc_image}}{% endif %}" alt="User Image" class="avatar-img rounded-circle">
+                    </div>
+                    <div class="media-body flex-grow-1">
+                        <div class="msg-box">
+                            <div>
+                                <p>{{ chat.message }}</p>
+                                <ul class="chat-msg-info">
+                                    <li>
+                                        <div class="chat-time">
+                                            <span>{{ chat.timestamp|time:"h:i A" }}</span>
+                                        </div>
+                                    </li>
+                                    <li><a href="#">Edit</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <div class="chat-footer">
+              <div class="input-group">
+               <form method="post">
+          {% csrf_token %}
+          <div class="input-group">
+            <input type="text" class="input-msg-send form-control rounded-pill" name="message" placeholder="Type something">
+            <button type="submit" class="btn msg-send-btn rounded-pill ms-2"><i class="fab fa-telegram-plane"></i></button>
+          </div>
+        </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="modal fade call-modal" id="voice_call">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="call-box incoming-box">
+          <div class="call-wrapper">
+            <div class="call-inner">
+              <div class="call-user">
+                <img alt="User Image" src="assets/img/patients/patient-9.jpg" class="call-avatar">
+                <h4>George Anderson</h4>
+                <span>Connecting...</span>
+              </div>
+              <div class="call-items">
+                <a href="javascript:void(0);" class="btn call-item call-end" data-bs-dismiss="modal"
+                  aria-label="Close"><i class="material-icons">call_end</i></a>
+                <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/voice-call"
+                  class="btn call-item call-start"><i class="material-icons">call</i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade call-modal" id="video_call">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="call-box incoming-box">
+          <div class="call-wrapper">
+            <div class="call-inner">
+              <div class="call-user">
+                <img class="call-avatar" src="assets/img/patients/patient-9.jpg" alt="User Image">
+                <h4>George Anderson</h4>
+                <span>Calling ...</span>
+              </div>
+              <div class="call-items">
+                <a href="javascript:void(0);" class="btn call-item call-end" data-bs-dismiss="modal"
+                  aria-label="Close"><i class="material-icons">call_end</i></a>
+                <a href="https://doccure.dreamguystech.com/laravel/template-cardiology/public/video-call"
+                  class="btn call-item call-start"><i class="material-icons">videocam</i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
